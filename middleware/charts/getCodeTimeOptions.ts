@@ -9,7 +9,7 @@ export function getCodeTimeOptions(data: any): EChartsOption {
       },
     },
     xAxis: {
-      type: "category",
+      type: "time",
     },
     grid: {
       left: "10px",
