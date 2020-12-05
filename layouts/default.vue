@@ -39,7 +39,9 @@
     </v-app-bar>
     <v-main>
       <v-container>
-        <nuxt />
+        <v-scroll-y-transition>
+          <nuxt />
+        </v-scroll-y-transition>
       </v-container>
     </v-main>
     <v-footer app>

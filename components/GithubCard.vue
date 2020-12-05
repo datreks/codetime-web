@@ -1,5 +1,5 @@
 <template>
-  <v-fade-transition>
+  <v-scroll-y-transition>
     <v-card v-if="user.name" class="text-center">
       <v-card-title>
         <v-row no-gutters>
@@ -18,7 +18,7 @@
         </v-row>
       </v-card-text>
     </v-card>
-  </v-fade-transition>
+  </v-scroll-y-transition>
 </template>
 <script lang="ts">
 import Vue from "vue";
