@@ -37,13 +37,11 @@ export default Vue.extend({
       const chart = echarts.init(dom);
       chart.setOption(this.options);
       this.chart = chart;
-      // 创建一个观察器实例并传入回调函数
       this.observer = new MutationObserver(() => {
         if (!this.resizing) {
           this.resizing = true;
           setTimeout(() => {
             this.chart.resize();
-            chart.resize();
             this.resizing = false;
           }, 200);
         }
