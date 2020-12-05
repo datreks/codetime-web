@@ -1,4 +1,5 @@
 import { EChartsOption } from "echarts";
+import { getDuration } from "../utils/getDuration";
 
 export function getLangRadioOptions(data: any): EChartsOption {
   data = data
@@ -17,8 +18,9 @@ export function getLangRadioOptions(data: any): EChartsOption {
         const name = a.name;
         const percent = a.percent;
         // const value = new Intl.NumberFormat().format(a.value);
-        const value = new Date(a.value * 1000).toISOString().substr(11, 5);
-        return `<span class="subtitle">${name}</span><br/><span class="font-weight-bold">${value}</span> [${percent}%]`;
+        // const value = new Date(a.value * 1000).toISOString().substr(11, 5);
+        return `<span class="subtitle">${name}</span><br/><span class="font-weight-bold">
+        ${getDuration(a.value)}</span> [${percent}%]`;
       },
     },
     legend: {
