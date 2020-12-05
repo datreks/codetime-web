@@ -1,6 +1,12 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer :mini-variant="miniVariant" clipped fixed app>
+    <v-navigation-drawer
+      v-model="drawer"
+      clipped
+      :mini-variant="miniVariant"
+      fixed
+      app
+    >
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
@@ -19,8 +25,11 @@
       </v-list>
     </v-navigation-drawer>
     <v-app-bar clipped-left fixed app>
+      <v-btn icon @click.stop="drawer = !drawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
       <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
+        <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
@@ -41,23 +50,24 @@ export default {
   data() {
     return {
       clipped: false,
+      drawer: false,
       items: [
         {
-          icon: 'mdi-view-dashboard-variant',
-          title: '仪表盘',
-          to: '/',
+          icon: "mdi-view-dashboard-variant",
+          title: "仪表盘",
+          to: "/",
         },
         {
-          icon: 'mdi-account-group',
-          title: '贡献者',
-          to: '/contributor',
+          icon: "mdi-account-group",
+          title: "贡献者",
+          to: "/contributor",
         },
       ],
-      miniVariant: false,
+      miniVariant: true,
       right: true,
       rightDrawer: false,
-      title: 'Code Time',
-    }
+      title: "Code Time",
+    };
   },
-}
+};
 </script>

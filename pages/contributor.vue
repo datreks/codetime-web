@@ -15,25 +15,25 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import GithubCard from '../components/GithubCard.vue'
+import Vue from "vue";
+import GithubCard from "../components/GithubCard.vue";
 export default Vue.extend({
   components: { GithubCard },
   data() {
     return {
       jannchie: {} as any,
       si9ma: {} as any,
-    }
+    };
   },
   async mounted() {
     this.jannchie = await this.$axios.$get(
-      'https://api.github.com/users/jannchie'
-    )
+      "https://api.github.com/users/jannchie"
+    );
     this.jannchie.bio =
-      'Contributed to the writing of the VSCode extension program and front-end data visualization display.'
-    this.si9ma = await this.$axios.$get('https://api.github.com/users/si9ma')
+      "Contributed to the writing of the VSCode extension program and front-end data visualization display.";
+    this.si9ma = await this.$axios.$get("https://api.github.com/users/si9ma");
     this.si9ma.bio =
-      'Contributing to the writing of the Jetbrains IDE extension and server design and data mining.'
+      "Contributing to the writing of the Jetbrains IDE extension and server design and data mining.";
   },
-})
+});
 </script>
