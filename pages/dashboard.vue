@@ -21,6 +21,7 @@ import ChartCardContent from "../components/ChartCardContent.vue";
 import { getLangRadioOptions } from "../middleware/charts/getLangRadioOptions";
 import { getCodeTimeOptions } from "../middleware/charts/getCodeTimeOptions";
 import { getGMTTimeZone } from "../middleware/utils/getGMTTimeZone";
+import { getUid } from "../middleware/utils/getUid";
 export default Vue.extend({
   components: { ChartCardContent },
   data() {
@@ -31,15 +32,13 @@ export default Vue.extend({
   },
   mounted() {
     this.$axios
-      .$get(`http://codetime.si9ma.com:5000/stats/language?userID=1`)
+      .$get(`http://codetime.si9ma.com:5000/stats/language?userID=${getUid()}`)
       .then((d) => {
         this.langRadioOptions = getLangRadioOptions(d.data);
       });
-    console.log(getGMTTimeZone());
-
     this.$axios
       .$post(`http://codetime.si9ma.com:5000/stats/byTime`, {
-        userID: 1,
+        userID: getUid(),
         timeFormat: "%Y-%m-%d %H",
         tz: getGMTTimeZone(),
       })

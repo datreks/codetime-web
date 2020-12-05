@@ -33,6 +33,9 @@
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-btn text to="login">
+        <v-icon left> mdi-login-variant</v-icon> login
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -55,7 +58,7 @@ export default {
         {
           icon: "mdi-view-dashboard-variant",
           title: "仪表盘",
-          to: "/",
+          to: "/dashboard",
         },
         {
           icon: "mdi-account-group",
