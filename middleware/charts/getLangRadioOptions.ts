@@ -2,14 +2,17 @@ import { EChartsOption } from "echarts";
 import { getDuration } from "../utils/getDuration";
 
 export function getLangRadioOptions(data: any): EChartsOption {
-  data = data
-    .map((d: any) => {
-      return {
-        name: d.language,
-        value: d.duration,
-      };
-    })
-    .slice(0, 5);
+  data = data.map((d: any) => {
+    return {
+      name: d.language,
+      value: d.duration,
+    };
+  });
+  let selected = data.slice(5).reduce((pre: any, d: any) => {
+    pre[d.name] = false;
+    return pre;
+  }, {});
+  console.log(selected);
 
   const options = {
     tooltip: {
@@ -24,11 +27,11 @@ export function getLangRadioOptions(data: any): EChartsOption {
       },
     },
     legend: {
-      top: "5%",
-      left: "center",
+      type: "scroll",
       textStyle: {
         color: "#777",
       },
+      selected: selected,
     },
     series: {
       type: "pie",
