@@ -12,7 +12,6 @@ export function getLangRadioOptions(data: any): EChartsOption {
     pre[d.name] = false;
     return pre;
   }, {});
-  console.log(selected);
 
   const options = {
     tooltip: {
