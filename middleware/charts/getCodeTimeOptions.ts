@@ -1,7 +1,13 @@
 import { EChartsOption } from "echarts";
-
+import { getDuration } from "../utils/getDuration";
 export function getCodeTimeOptions(data: any): EChartsOption {
   const options = {
+    tooltip: {
+      formatter: (param: any) => {
+        return `${param.data.day} </br> <span class="font-weight-bold">
+        ${getDuration(param.data.duration)}</span>`;
+      },
+    },
     xAxis: {
       type: "category",
     },
@@ -12,14 +18,24 @@ export function getCodeTimeOptions(data: any): EChartsOption {
       bottom: "10px",
       containLabel: true,
     },
-    yAxis: { type: "value" },
+    yAxis: {
+      type: "value",
+      axisLabel: {
+        formatter(v: any) {
+          return getDuration(v);
+        },
+      },
+    },
     dataset: {
-      dimensions: ["date", "value"],
+      dimensions: ["day", "duration"],
       source: data,
     },
     series: {
       type: "bar",
-      dimensions: ["date", "value"],
+      itemStyle: {
+        borderRadius: [5, 5, 0, 0],
+      },
+      dimensions: ["day", "duration"],
     },
   } as EChartsOption;
   return options;

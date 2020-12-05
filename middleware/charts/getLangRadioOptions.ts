@@ -1,6 +1,12 @@
 import { EChartsOption } from "echarts";
 
 export function getLangRadioOptions(data: any): EChartsOption {
+  data = data.map((d: any) => {
+    return {
+      name: d.language,
+      value: d.duration,
+    };
+  });
   const options = {
     tooltip: {
       trigger: "item",
@@ -9,7 +15,7 @@ export function getLangRadioOptions(data: any): EChartsOption {
         const percent = a.percent;
         // const value = new Intl.NumberFormat().format(a.value);
         const value = new Date(a.value * 1000).toISOString().substr(11, 5);
-        return `${name}<br/>${value} [${percent}%]`;
+        return `<span class="subtitle">${name}</span><br/><span class="font-weight-bold">${value}</span> [${percent}%]`;
       },
     },
     legend: {

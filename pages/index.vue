@@ -29,25 +29,16 @@ export default Vue.extend({
     };
   },
   mounted() {
-    this.langRadioOptions = getLangRadioOptions([
-      { name: "TypeScript", value: 1212 },
-      { name: "Golang", value: 2323 },
-      { name: "C++", value: 1919 },
-    ]);
-    this.codeTimeOption = getCodeTimeOptions([
-      { date: "2020-12-01", value: 45 },
-      { date: "2020-12-02", value: 43 },
-      { date: "2020-12-03", value: 155 },
-      { date: "2020-12-04", value: 64 },
-      { date: "2020-12-05", value: 77 },
-      { date: "2020-12-06", value: 12 },
-      { date: "2020-12-07", value: 64 },
-      { date: "2020-12-08", value: 77 },
-      { date: "2020-12-09", value: 12 },
-      { date: "2020-12-10", value: 64 },
-      { date: "2020-12-11", value: 77 },
-      { date: "2020-12-12", value: 12 },
-    ]);
+    this.$axios
+      .$get(`http://codetime.si9ma.com:5000/stats/language?userID=0`)
+      .then((d) => {
+        this.langRadioOptions = getLangRadioOptions(d.data);
+      });
+    this.$axios
+      .$get(`http://codetime.si9ma.com:5000/stats/byday?userID=0`)
+      .then((d) => {
+        this.codeTimeOption = getCodeTimeOptions(d.data);
+      });
   },
 });
 </script>

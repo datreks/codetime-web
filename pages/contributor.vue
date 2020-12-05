@@ -25,15 +25,17 @@ export default Vue.extend({
       si9ma: {} as any,
     };
   },
-  async mounted() {
-    this.jannchie = await this.$axios.$get(
-      "https://api.github.com/users/jannchie"
-    );
-    this.jannchie.bio =
-      "Contributed to the writing of the VSCode extension program and front-end data visualization display.";
-    this.si9ma = await this.$axios.$get("https://api.github.com/users/si9ma");
-    this.si9ma.bio =
-      "Contributing to the writing of the Jetbrains IDE extension and server design and data mining.";
+  mounted() {
+    this.$axios.$get("https://api.github.com/users/jannchie").then((data) => {
+      this.jannchie = data;
+      this.jannchie.bio =
+        "Contributed to the writing of the VSCode extension program and front-end data visualization display.";
+    });
+    this.$axios.$get("https://api.github.com/users/si9ma").then((data) => {
+      this.si9ma = data;
+      this.si9ma.bio =
+        "Contributing to the writing of the Jetbrains IDE extension and server design and data mining.";
+    });
   },
 });
 </script>
