@@ -30,12 +30,15 @@ export default Vue.extend({
   },
   mounted() {
     this.$axios
-      .$get(`http://codetime.si9ma.com:5000/stats/language?userID=0`)
+      .$get(`http://codetime.si9ma.com:5000/stats/language?userID=1`)
       .then((d) => {
         this.langRadioOptions = getLangRadioOptions(d.data);
       });
     this.$axios
-      .$get(`http://codetime.si9ma.com:5000/stats/byday?userID=0`)
+      .$post(`http://codetime.si9ma.com:5000/stats/byTime`, {
+        userID: 1,
+        timeFormat: "%Y-%m-%d %H",
+      })
       .then((d) => {
         this.codeTimeOption = getCodeTimeOptions(d.data);
       });

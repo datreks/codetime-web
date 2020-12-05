@@ -1,12 +1,15 @@
 import { EChartsOption } from "echarts";
 
 export function getLangRadioOptions(data: any): EChartsOption {
-  data = data.map((d: any) => {
-    return {
-      name: d.language,
-      value: d.duration,
-    };
-  });
+  data = data
+    .map((d: any) => {
+      return {
+        name: d.language,
+        value: d.duration,
+      };
+    })
+    .slice(0, 5);
+
   const options = {
     tooltip: {
       trigger: "item",

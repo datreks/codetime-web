@@ -4,7 +4,7 @@ export function getCodeTimeOptions(data: any): EChartsOption {
   const options = {
     tooltip: {
       formatter: (param: any) => {
-        return `${param.data.day} </br> <span class="font-weight-bold">
+        return `${param.data.time} </br> <span class="font-weight-bold">
         ${getDuration(param.data.duration)}</span>`;
       },
     },
@@ -27,7 +27,7 @@ export function getCodeTimeOptions(data: any): EChartsOption {
       },
     },
     dataset: {
-      dimensions: ["day", "duration"],
+      dimensions: ["time", "duration"],
       source: data,
     },
     series: {
@@ -35,7 +35,7 @@ export function getCodeTimeOptions(data: any): EChartsOption {
       itemStyle: {
         borderRadius: [5, 5, 0, 0],
       },
-      dimensions: ["day", "duration"],
+      dimensions: ["time", "duration"],
     },
   } as EChartsOption;
   return options;
