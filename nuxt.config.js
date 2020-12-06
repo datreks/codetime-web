@@ -46,6 +46,14 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {},
 
+  // pwa
+  pwa: {
+    icon: {
+      source: "static/icon.png",
+      filename: "icon.png",
+    },
+  },
+
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ["~/assets/variables.scss"],

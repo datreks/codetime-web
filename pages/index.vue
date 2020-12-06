@@ -34,6 +34,7 @@ export default Vue.extend({
   data() {
     return { uid: "" };
   },
+  mounted() {},
   methods: {
     login() {
       localStorage.setItem("uid", this.uid);
