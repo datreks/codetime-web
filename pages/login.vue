@@ -8,8 +8,8 @@
             <v-row no-gutters>
               <v-col cols="12">
                 <v-text-field
-                  v-model="uid"
-                  label="用户ID"
+                  v-model="token"
+                  label="Token"
                   outlined
                 ></v-text-field>
               </v-col>
@@ -30,11 +30,11 @@
 import Vue from "vue";
 export default Vue.extend({
   data() {
-    return { uid: "" };
+    return { token: "" };
   },
   methods: {
     login() {
-      localStorage.setItem("uid", this.uid);
+      localStorage.setItem("token", this.token);
     },
   },
 });

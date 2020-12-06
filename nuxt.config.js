@@ -1,5 +1,4 @@
 import colors from "vuetify/es5/util/colors";
-
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: "static",
@@ -20,7 +19,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ["~/plugins/axios"],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -44,7 +43,9 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: "https://codetime.si9ma.com",
+  },
 
   // pwa
   pwa: {
