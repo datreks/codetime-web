@@ -50,8 +50,8 @@ export default {
   // pwa
   pwa: {
     icon: {
-      source: "static/icon.png",
-      filename: "icon.png",
+      source: "static/icon-white.png",
+      filename: "icon-white.png",
       cacheDir: "dist/_nuxt/icons",
     },
     meta: {
