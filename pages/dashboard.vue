@@ -32,12 +32,12 @@ export default Vue.extend({
   },
   mounted() {
     this.$axios
-      .$get(`http://codetime.si9ma.com:5000/stats/language?userID=${getUid()}`)
+      .$get(`https://codetime.si9ma.com/stats/language?userID=${getUid()}`)
       .then((d) => {
         this.langRadioOptions = getLangRadioOptions(d.data);
       });
     this.$axios
-      .$post(`http://codetime.si9ma.com:5000/stats/byTime`, {
+      .$post(`https://codetime.si9ma.com/stats/byTime`, {
         userID: getUid(),
         timeFormat: "%Y-%m-%d %H",
         tz: getGMTTimeZone(),

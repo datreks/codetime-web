@@ -31,7 +31,9 @@
       <v-btn icon @click.stop="miniVariant = !miniVariant">
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
-      <v-toolbar-title v-text="title" />
+      <v-toolbar-title>
+        <v-btn text class="title" to="/">{{ title }}</v-btn>
+      </v-toolbar-title>
       <v-spacer />
       <v-btn text to="login">
         <v-icon left> mdi-login-variant</v-icon> login
