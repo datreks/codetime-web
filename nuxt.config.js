@@ -52,6 +52,12 @@ export default {
     icon: {
       source: "static/icon.png",
       filename: "icon.png",
+      cacheDir: "dist/_nuxt/icons",
+    },
+    meta: {
+      name: "Code Time",
+      description:
+        "An application that provides statistical analysis of programming time.",
     },
   },
 
