@@ -59,6 +59,9 @@ export default {
       description:
         "An application that provides statistical analysis of programming time.",
     },
+    workbox: {
+      cachingExtensions: "~/plugins/workbox.js",
+    },
   },
 
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
