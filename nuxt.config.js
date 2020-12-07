@@ -45,6 +45,7 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: "https://codetime.si9ma.com",
+    credentials: true,
   },
 
   // pwa
@@ -58,6 +59,9 @@ export default {
       name: "Code Time",
       description:
         "An application that provides statistical analysis of programming time.",
+    },
+    workbox: {
+      cachingExtensions: "~/plugins/workbox.js",
     },
   },
 

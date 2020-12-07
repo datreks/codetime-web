@@ -32,7 +32,7 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
       <v-toolbar-title>
-        <v-btn text class="title" to="/">{{ title }}</v-btn>
+        {{ title }}
       </v-toolbar-title>
       <v-spacer />
       <v-btn text to="login">
@@ -75,6 +75,9 @@ export default {
       rightDrawer: false,
       title: "Code Time",
     };
+  },
+  mounted() {
+    // TODO: Get User Info
   },
 };
 </script>
