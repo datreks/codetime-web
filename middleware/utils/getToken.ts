@@ -1,5 +1,5 @@
 export function getToken() {
-  let token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
   let finalToken: string;
   if (token == null) {
     finalToken = "";

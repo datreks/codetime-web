@@ -5,7 +5,7 @@ test("durations", () => {
   expect(getDuration(60000)).toBe("60secs");
   expect(getDuration(60050)).toBe("1min");
   expect(getDuration(3600000)).toBe("60mins");
-  expect(getDuration(3601000)).toBe("1hr");
+  expect(getDuration(3660001)).toBe("1hr 1min");
   expect(getDuration(133601000)).toBe("1d 13hrs");
   expect(getDuration(15234664000)).toBe("176ds 7hrs");
 });
