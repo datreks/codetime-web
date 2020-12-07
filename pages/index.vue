@@ -21,9 +21,17 @@
         programming with this application and contribute to the community.
       </div>
       <div class="mt-2">
-        <v-btn x-large primary to="/login"
-          ><v-icon left>mdi-login</v-icon> Login</v-btn
+        <v-btn x-large primary to="/login">
+          <v-icon left>mdi-login</v-icon> Login
+        </v-btn>
+        <v-btn
+          x-large
+          primary
+          :href="`https://github.com/login/oauth/authorize?client_id=${clientId}`"
         >
+          <v-icon left>mdi-github</v-icon>
+          Login with Github
+        </v-btn>
       </div>
     </v-col>
   </v-row>
@@ -32,13 +40,10 @@
 import Vue from "vue";
 export default Vue.extend({
   data() {
-    return { uid: "" };
+    return {
+      clientId: "409fa7d9be29502f290e",
+    };
   },
-  mounted() {},
-  methods: {
-    login() {
-      localStorage.setItem("uid", this.uid);
-    },
-  },
+  methods: {},
 });
 </script>
