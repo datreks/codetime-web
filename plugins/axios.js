@@ -1,6 +1,9 @@
 import { getToken } from "../middleware/utils/getToken";
 export default function ({ $axios }) {
   $axios.onRequest((config) => {
-    config.headers.token = getToken();
+    if (config.url.slice(0, 4) !== "http") {
+      // 使用base url，则需要带token
+      config.headers.token = getToken();
+    }
   });
 }
