@@ -45,6 +45,7 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: "https://codetime.si9ma.com",
+    credentials: true,
   },
 
   // pwa
