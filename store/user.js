@@ -9,6 +9,9 @@ export const mutations = {
     state.avatar = data.data.avatar_url;
     state.logined = true;
   },
+  logout(state) {
+    state.logined = false;
+  },
 };
 
 export const actions = {
@@ -24,6 +27,7 @@ export const actions = {
       .catch((e) => {
         // eslint-disable-next-line no-console
         console.error(e);
+        ctx.commit("logout");
         this.$router.push("/");
       });
   },
