@@ -1,5 +1,8 @@
 <template>
   <v-app dark>
+    <v-overlay color="#111" opacity="0.8" :value="user.logined === undefined">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
     <v-navigation-drawer
       v-model="drawer"
       clipped

@@ -1,7 +1,7 @@
 export const state = () => ({
   name: undefined,
   avatar: undefined,
-  logined: false,
+  logined: undefined,
 });
 export const mutations = {
   login(state, data) {

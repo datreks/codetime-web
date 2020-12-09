@@ -1,10 +1,21 @@
 <template>
   <v-card-text ref="wapper">
-    <div ref="chart" style="height: 300px"></div>
+    <v-fade-transition group>
+      <div key="chart" ref="chart" style="height: 300px"></div>
+      <v-overlay
+        v-if="!loaded && user.logined"
+        key="overlay"
+        :opacity="0"
+        absolute
+      >
+        <v-progress-circular indeterminate size="64"></v-progress-circular>
+      </v-overlay>
+    </v-fade-transition>
   </v-card-text>
 </template>
 <script lang="ts">
 import * as echarts from "echarts";
+import { mapState } from "vuex";
 import Vue from "vue";
 export default Vue.extend({
   props: {
@@ -15,10 +26,14 @@ export default Vue.extend({
   },
   data() {
     return {
+      loaded: false,
       chart: {} as any,
       resizing: false,
       observer: {} as MutationObserver,
     };
+  },
+  computed: {
+    ...mapState(["user"]),
   },
   watch: {
     options() {
@@ -37,6 +52,7 @@ export default Vue.extend({
       const chart = echarts.init(dom);
       chart.setOption(this.options);
       this.chart = chart;
+      this.loaded = true;
       this.observer = new MutationObserver(() => {
         if (!this.resizing) {
           this.resizing = true;
