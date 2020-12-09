@@ -8,7 +8,7 @@ export function getLangRadioOptions(data: any): EChartsOption {
       value: d.duration,
     };
   });
-  let selected = data.slice(5).reduce((pre: any, d: any) => {
+  const selected = data.slice(5).reduce((pre: any, d: any) => {
     pre[d.name] = false;
     return pre;
   }, {});
@@ -30,7 +30,7 @@ export function getLangRadioOptions(data: any): EChartsOption {
       textStyle: {
         color: "#777",
       },
-      selected: selected,
+      selected,
     },
     series: {
       type: "pie",

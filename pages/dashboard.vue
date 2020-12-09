@@ -56,6 +56,9 @@ export default Vue.extend({
       .then((d) => {
         this.codeTimeDayOption = getCodeTimeOptions(d.data, "line");
       });
+    this.$axios.$get(`/stats/editor?byDay=1`).then((d) => {
+      console.log(d);
+    });
   },
 });
 </script>

@@ -24,7 +24,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar clipped-left fixed app>
+    <v-app-bar height="64px" clipped-left fixed app>
       <v-btn icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -35,9 +35,12 @@
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
-      <v-btn text to="login">
+      <v-btn v-if="!user.logined" text to="login">
         <v-icon left> mdi-login-variant</v-icon> login
       </v-btn>
+      <v-avatar v-else>
+        <v-img :src="user.avatar"></v-img>
+      </v-avatar>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -76,8 +79,13 @@ export default {
       title: "Code Time",
     };
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
   mounted() {
-    // TODO: Get User Info
+    this.$store.dispatch("user/login");
   },
 };
 </script>
