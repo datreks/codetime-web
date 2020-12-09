@@ -39,9 +39,7 @@
 import Vue from "vue";
 export default Vue.extend({
   data() {
-    return {
-      clientId: "409fa7d9be29502f290e",
-    };
+    return {};
   },
   methods: {},
 });

@@ -1,7 +1,20 @@
 <template>
   <v-app dark>
-    <v-overlay color="#111" opacity="0.8" :value="user.logined === undefined">
-      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    <v-overlay
+      color="#111"
+      :z-index="100"
+      :opacity="1"
+      :value="user.logined === undefined"
+      class="text-center"
+    >
+      <v-img
+        class="rotate"
+        eager
+        max-height="64px"
+        max-width="64px"
+        src="/favicon.ico"
+      ></v-img>
+      <div class="text--secondary caption">正在载入资源和数据</div>
     </v-overlay>
     <v-navigation-drawer
       v-model="drawer"
@@ -27,7 +40,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar height="64px" clipped-left fixed app>
+    <v-app-bar height="48px" clipped-left fixed app>
       <v-btn icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -41,7 +54,7 @@
       <v-btn v-if="!user.logined" text to="login">
         <v-icon left> mdi-login-variant</v-icon> login
       </v-btn>
-      <v-avatar v-else>
+      <v-avatar v-else size="32px">
         <v-img :src="user.avatar"></v-img>
       </v-avatar>
     </v-app-bar>
@@ -75,6 +88,11 @@ export default {
           title: "贡献者",
           to: "/contributor",
         },
+        {
+          icon: "mdi-account",
+          title: "个人",
+          to: "/account",
+        },
       ],
       miniVariant: true,
       right: true,
@@ -92,3 +110,32 @@ export default {
   },
 };
 </script>
+<style scoped>
+.rotate {
+  -webkit-animation: my-rotate 1s linear infinite;
+  animation: my-rotate 1s linear infinite;
+  display: inline-block;
+}
+@-webkit-keyframes my-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes my-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+</style>

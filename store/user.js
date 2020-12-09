@@ -7,6 +7,7 @@ export const mutations = {
   login(state, data) {
     state.name = data.data.name;
     state.avatar = data.data.avatar_url;
+    localStorage.setItem("token", data.data.token);
     state.logined = true;
   },
   logout(state) {

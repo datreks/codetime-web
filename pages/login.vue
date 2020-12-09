@@ -19,8 +19,8 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn primary @click="login"
-            ><v-icon left>mdi-login</v-icon> login</v-btn
-          >
+            ><v-icon left>mdi-login</v-icon> login
+          </v-btn>
         </v-card-actions>
       </v-card>
     </v-col>
@@ -33,9 +33,7 @@ export default Vue.extend({
     return { token: "" };
   },
   methods: {
-    login() {
-      localStorage.setItem("token", this.token);
-    },
+    login() {},
   },
 });
 </script>

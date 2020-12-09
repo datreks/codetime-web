@@ -57,6 +57,7 @@ export default Vue.extend({
         this.codeTimeDayOption = getCodeTimeOptions(d.data, "line");
       });
     this.$axios.$get(`/stats/editor?byDay=1`).then((d) => {
+      // eslint-disable-next-line no-console
       console.log(d);
     });
   },
