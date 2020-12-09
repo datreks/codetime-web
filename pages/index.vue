@@ -22,11 +22,6 @@
       </div>
       <v-row align="center" justify="center">
         <v-col lg="auto" cols="12">
-          <v-btn large primary to="/login">
-            <v-icon left>mdi-login</v-icon> Login
-          </v-btn>
-        </v-col>
-        <v-col lg="auto" cols="12">
           <v-btn
             large
             primary

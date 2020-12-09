@@ -1,6 +1,6 @@
 import { EChartsOption } from "echarts";
 import { getDuration } from "../utils/getDuration";
-export function getCodeTimeOptions(data: any): EChartsOption {
+export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
   const options = {
     tooltip: {
       formatter: (param: any) => {
@@ -31,7 +31,7 @@ export function getCodeTimeOptions(data: any): EChartsOption {
       source: data,
     },
     series: {
-      type: "bar",
+      type,
       itemStyle: {
         borderRadius: [5, 5, 0, 0],
       },

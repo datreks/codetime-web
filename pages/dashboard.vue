@@ -8,8 +8,14 @@
     </v-col>
     <v-col cols="12" lg="8">
       <v-card>
-        <v-card-title>编程时间统计</v-card-title>
-        <chart-card-content :options="codeTimeOption"> </chart-card-content>
+        <v-card-title>编程时间统计 - 按日</v-card-title>
+        <chart-card-content :options="codeTimeDayOption"> </chart-card-content>
+      </v-card>
+    </v-col>
+    <v-col cols="12">
+      <v-card>
+        <v-card-title>编程时间统计 - 按小时</v-card-title>
+        <chart-card-content :options="codeTimeHourOption"> </chart-card-content>
       </v-card>
     </v-col>
   </v-row>
@@ -26,7 +32,8 @@ export default Vue.extend({
   data() {
     return {
       langRadioOptions: {},
-      codeTimeOption: {},
+      codeTimeDayOption: {},
+      codeTimeHourOption: {},
     };
   },
   mounted() {
@@ -39,7 +46,15 @@ export default Vue.extend({
         tz: getGMTTimeZone(),
       })
       .then((d) => {
-        this.codeTimeOption = getCodeTimeOptions(d.data);
+        this.codeTimeHourOption = getCodeTimeOptions(d.data);
+      });
+    this.$axios
+      .$post(`/stats/byTime`, {
+        timeFormat: "%Y-%m-%d",
+        tz: getGMTTimeZone(),
+      })
+      .then((d) => {
+        this.codeTimeDayOption = getCodeTimeOptions(d.data, "line");
       });
   },
 });
