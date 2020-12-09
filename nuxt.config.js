@@ -13,13 +13,19 @@ export default {
       { hid: "description", name: "description", content: "" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-D10D9FJMNE",
+      },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ["~/plugins/axios"],
+  plugins: ["~/plugins/axios", { src: "~plugins/ga.js", mode: "client" }],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
