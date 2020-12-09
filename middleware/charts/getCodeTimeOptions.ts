@@ -10,6 +10,9 @@ export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
     },
     xAxis: {
       type: "time",
+      axisLabel: {
+        formatter: "{yyyy}-{MM}-{dd} {HH}:00",
+      },
     },
     grid: {
       left: "10px",
