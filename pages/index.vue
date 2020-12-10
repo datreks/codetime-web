@@ -25,7 +25,7 @@
           <v-btn
             outlined
             large
-            :href="`https://codetime.si9ma.com/login/github`"
+            :href="`${$axios.defaults.baseURL}login/github`"
           >
             <v-icon left>mdi-github</v-icon>
             Login with Github
@@ -38,9 +38,6 @@
 <script lang="ts">
 import Vue from "vue";
 export default Vue.extend({
-  data() {
-    return {};
-  },
   methods: {},
 });
 </script>

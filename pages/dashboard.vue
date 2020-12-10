@@ -1,12 +1,12 @@
 <template>
   <v-row>
-    <v-col cols="12" lg="4">
+    <v-col cols="12" md="4">
       <v-card>
         <v-card-title>语言使用比例</v-card-title>
         <chart-card-content :options="langRadioOptions"></chart-card-content>
       </v-card>
     </v-col>
-    <v-col cols="12" lg="8">
+    <v-col cols="12" md="8">
       <v-card>
         <v-card-title>编程时间统计 - 按日</v-card-title>
         <chart-card-content :options="codeTimeDayOption"> </chart-card-content>
@@ -18,13 +18,13 @@
         <chart-card-content :options="codeTimeHourOption"> </chart-card-content>
       </v-card>
     </v-col>
-    <v-col cols="6">
+    <v-col cols="12" md="6">
       <v-card>
         <v-card-title>语言用时统计</v-card-title>
         <chart-card-content :options="languageOptions"> </chart-card-content>
       </v-card>
     </v-col>
-    <v-col cols="6">
+    <v-col cols="12" md="6">
       <v-card>
         <v-card-title>编辑器/IDE用时统计</v-card-title>
         <chart-card-content :options="editorOptions"> </chart-card-content>
