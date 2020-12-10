@@ -18,6 +18,18 @@
         <chart-card-content :options="codeTimeHourOption"> </chart-card-content>
       </v-card>
     </v-col>
+    <v-col cols="6">
+      <v-card>
+        <v-card-title>语言用时统计</v-card-title>
+        <chart-card-content :options="languageOptions"> </chart-card-content>
+      </v-card>
+    </v-col>
+    <v-col cols="6">
+      <v-card>
+        <v-card-title>编辑器/IDE用时统计</v-card-title>
+        <chart-card-content :options="editorOptions"> </chart-card-content>
+      </v-card>
+    </v-col>
   </v-row>
 </template>
 
@@ -27,6 +39,7 @@ import ChartCardContent from "../components/ChartCardContent.vue";
 import { getLangRadioOptions } from "../middleware/charts/getLangRadioOptions";
 import { getCodeTimeOptions } from "../middleware/charts/getCodeTimeOptions";
 import { getGMTTimeZone } from "../middleware/utils/getGMTTimeZone";
+import { getStackOptions } from "../middleware/charts/getStackOptions";
 export default Vue.extend({
   components: { ChartCardContent },
   data() {
@@ -34,6 +47,8 @@ export default Vue.extend({
       langRadioOptions: {},
       codeTimeDayOption: {},
       codeTimeHourOption: {},
+      editorOptions: {},
+      languageOptions: {},
     };
   },
   mounted() {
@@ -57,8 +72,10 @@ export default Vue.extend({
         this.codeTimeDayOption = getCodeTimeOptions(d.data, "line");
       });
     this.$axios.$get(`/stats/editor?byDay=1`).then((d) => {
-      // eslint-disable-next-line no-console
-      console.log(d);
+      this.editorOptions = getStackOptions(d, "editor");
+    });
+    this.$axios.$get(`/stats/language?byDay=1`).then((d) => {
+      this.languageOptions = getStackOptions(d, "language");
     });
   },
 });

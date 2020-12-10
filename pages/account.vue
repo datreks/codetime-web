@@ -16,12 +16,12 @@
             </v-row>
           </v-form>
         </v-card-text>
+        <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-
           <v-dialog v-model="dialog" width="500">
             <template #activator="{ on, attrs }">
-              <v-btn v-bind="attrs" v-on="on">
+              <v-btn color="error" outlined v-bind="attrs" v-on="on">
                 <v-icon left>mdi-refresh</v-icon> 刷新Token
               </v-btn>
             </template>
@@ -37,7 +37,7 @@
 
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" text @click="updateToken">
+                <v-btn color="error" outlined @click="updateToken">
                   <v-icon left>mdi-refresh</v-icon> I Know
                 </v-btn>
               </v-card-actions>

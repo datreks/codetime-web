@@ -23,8 +23,8 @@
       <v-row align="center" justify="center">
         <v-col lg="auto" cols="12">
           <v-btn
+            outlined
             large
-            primary
             :href="`https://codetime.si9ma.com/login/github`"
           >
             <v-icon left>mdi-github</v-icon>
