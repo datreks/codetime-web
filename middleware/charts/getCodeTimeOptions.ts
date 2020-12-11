@@ -28,6 +28,7 @@ export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
           return getDuration(v);
         },
       },
+      max: "dataMax",
     },
     dataset: {
       dimensions: ["time", "duration"],

@@ -60,6 +60,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { EChartsOption } from "echarts";
 import ChartCardContent from "../components/ChartCardContent.vue";
 import { getLangRadioOptions } from "../middleware/charts/getLangRadioOptions";
 import { getCodeTimeOptions } from "../middleware/charts/getCodeTimeOptions";
@@ -69,11 +70,11 @@ export default Vue.extend({
   components: { ChartCardContent },
   data() {
     return {
-      langRadioOptions: {},
-      codeTimeDayOption: {},
-      codeTimeHourOption: {},
-      editorOptions: {},
-      languageOptions: {},
+      langRadioOptions: {} as EChartsOption,
+      codeTimeDayOption: {} as EChartsOption,
+      codeTimeHourOption: {} as EChartsOption,
+      editorOptions: {} as EChartsOption,
+      languageOptions: {} as EChartsOption,
       empty: false,
     };
   },
@@ -90,6 +91,11 @@ export default Vue.extend({
         tz: getGMTTimeZone(),
       })
       .then((d) => {
+        d.data.forEach((d: any) => {
+          if (d.duration > 3600 * 1000) {
+            d.duration = 3600 * 1000;
+          }
+        });
         this.codeTimeHourOption = getCodeTimeOptions(d.data);
       });
     this.$axios
