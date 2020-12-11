@@ -1,5 +1,30 @@
 <template>
   <v-row>
+    <v-scroll-x-transition>
+      <v-alert
+        v-if="empty"
+        style="
+          position: fixed;
+          z-index: 2;
+          margin-left: 24px;
+          top: 64px;
+          right: 24px;
+        "
+        prominent
+        dense
+        type="info"
+        transition="scale-transition"
+      >
+        <v-row align="center">
+          <v-col class="grow">
+            未曾找到数据记录，请获取token并应用于插件。
+          </v-col>
+          <v-col class="shrink">
+            <v-btn to="/account" text> 获取token </v-btn>
+          </v-col>
+        </v-row>
+      </v-alert>
+    </v-scroll-x-transition>
     <v-col cols="12" md="4">
       <v-card>
         <v-card-title>语言使用比例</v-card-title>
@@ -49,10 +74,14 @@ export default Vue.extend({
       codeTimeHourOption: {},
       editorOptions: {},
       languageOptions: {},
+      empty: false,
     };
   },
   mounted() {
     this.$axios.$get(`/stats/language`).then((d) => {
+      if (d.data.length === 0) {
+        this.empty = true;
+      }
       this.langRadioOptions = getLangRadioOptions(d.data);
     });
     this.$axios

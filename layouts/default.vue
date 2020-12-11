@@ -51,10 +51,8 @@
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
-      <v-btn v-if="!user.logined" text to="login">
-        <v-icon left> mdi-login-variant</v-icon> login
-      </v-btn>
-      <v-avatar v-else size="32px">
+      <div v-if="!user.logined"></div>
+      <v-avatar v-else to="/account" size="32px">
         <v-img :src="user.avatar"></v-img>
       </v-avatar>
     </v-app-bar>
