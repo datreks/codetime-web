@@ -2,11 +2,13 @@ export const state = () => ({
   name: undefined,
   avatar: undefined,
   logined: undefined,
+  id: undefined,
 });
 export const mutations = {
   login(state, data) {
     state.name = data.data.name;
     state.avatar = data.data.avatar_url;
+    state.id = data.data.id;
     localStorage.setItem("token", data.data.token);
     state.logined = true;
   },

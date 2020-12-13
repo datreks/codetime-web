@@ -1,13 +1,69 @@
 <template>
-  <div></div>
+  <v-row align="center" justify="center">
+    <v-col cols="12" lg="6" md="8">
+      <v-card>
+        <v-card-title>徽章</v-card-title>
+        <v-card-text>
+          <img :src="url" />
+        </v-card-text>
+        <v-card-text>
+          <v-row dense>
+            <v-col cols="12">
+              <clip-text-field :value="html" label="HTML"></clip-text-field>
+            </v-col>
+            <v-col cols="12">
+              <clip-text-field
+                :value="markdown"
+                label="Markdown"
+              ></clip-text-field>
+            </v-col>
+          </v-row>
+        </v-card-text>
+        <v-card-text>
+          <v-select
+            v-model="style"
+            dense
+            :items="[
+              'flat',
+              'social',
+              'flat-square',
+              'for-the-badge',
+              'plastic',
+            ]"
+            label="样式"
+          ></v-select>
+        </v-card-text>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-export default Vue.extend({
-  mounted() {
-    location.href =
-      "https://img.shields.io/badge/codetime-1H24Min-blue?style=flat-square";
+<script>
+import { mapState } from "vuex";
+export default {
+  data() {
+    return {
+      style: "flat",
+    };
   },
-});
+  computed: {
+    ...mapState(["user"]),
+    color() {
+      if (this.style !== "social") {
+        return "white";
+      } else {
+        return "dark";
+      }
+    },
+    url() {
+      return `https://img.shields.io/endpoint?style=${this.style}&url=https://codetime-api.datreks.com/badge/${this.user.id}?color=${this.color}`;
+    },
+    html() {
+      return `<img alt="Code Time" src="${this.url}" />`;
+    },
+    markdown() {
+      return `![Code Time](${this.url})`;
+    },
+  },
+};
 </script>

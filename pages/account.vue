@@ -1,26 +1,5 @@
 <template>
   <v-row align="center" justify="center">
-    <v-scroll-x-transition>
-      <v-alert
-        v-if="clipped"
-        style="
-          position: fixed;
-          z-index: 2;
-          margin-left: 24px;
-          top: 64px;
-          right: 24px;
-        "
-        prominent
-        dense
-        outlined
-        text
-        type="success"
-      >
-        <v-row align="center">
-          <v-col class="grow"> Token复制成功 </v-col>
-        </v-row>
-      </v-alert>
-    </v-scroll-x-transition>
     <v-col cols="12" lg="4" md="6" class="text-center">
       <v-card>
         <v-card-title class="text-center"> Token </v-card-title>
@@ -32,14 +11,7 @@
           <v-form>
             <v-row no-gutters>
               <v-col cols="12">
-                <v-text-field
-                  v-model="token"
-                  readonly
-                  label="Token"
-                  outlined
-                  append-icon="mdi-content-cut"
-                  @click:append="clip"
-                ></v-text-field>
+                <clip-text-field label="Token" :value="token"></clip-text-field>
               </v-col>
             </v-row>
           </v-form>
@@ -77,10 +49,12 @@
 </template>
 <script lang="ts">
 import Vue from "vue";
+import ClipTextField from "~/components/ClipTextField.vue";
 import { getToken } from "~/middleware/utils/getToken";
 export default Vue.extend({
+  components: { ClipTextField },
   data() {
-    return { token: "", dialog: false, clipped: false };
+    return { token: "", dialog: false };
   },
   mounted() {
     this.token = getToken();
@@ -92,24 +66,6 @@ export default Vue.extend({
         localStorage.setItem("token", this.token);
         this.dialog = false;
       });
-    },
-    clip() {
-      this.execCopy(this.token);
-    },
-    execCopy(text: string) {
-      const input = document.createElement("input") as HTMLInputElement;
-      input.style.opacity = "0";
-      input.style.position = "absolute";
-      input.style.left = "-100000px";
-      document.body.appendChild(input);
-      input.value = text;
-      input.select();
-      input.setSelectionRange(0, text.length);
-      document.execCommand("copy");
-      document.body.removeChild(input);
-      this.clipped = true;
-      setTimeout(() => (this.clipped = false), 1000);
-      return true;
     },
   },
 });

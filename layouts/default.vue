@@ -91,6 +91,11 @@ export default {
           title: "个人",
           to: "/account",
         },
+        {
+          icon: "mdi-shield-star",
+          title: "徽章",
+          to: "/badge",
+        },
       ],
       miniVariant: true,
       right: true,
