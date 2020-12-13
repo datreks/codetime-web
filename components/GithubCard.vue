@@ -1,6 +1,6 @@
 <template>
   <v-scroll-y-transition>
-    <v-card v-if="user.name" class="text-center">
+    <v-card v-if="user.name" class="text-center" :href="user.html_url">
       <v-card-title>
         <v-row no-gutters>
           <v-col cols="12">

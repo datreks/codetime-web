@@ -5,6 +5,9 @@
         <v-card-title> 贡献者 </v-card-title>
       </v-card>
     </v-col>
+    <v-col cols="12">
+      <github-card :user="datreks"></github-card>
+    </v-col>
     <v-col cols="12" lg="6">
       <github-card :user="jannchie"></github-card>
     </v-col>
@@ -21,6 +24,7 @@ export default Vue.extend({
   components: { GithubCard },
   data() {
     return {
+      datreks: {} as any,
       jannchie: {} as any,
       si9ma: {} as any,
     };
@@ -36,6 +40,13 @@ export default Vue.extend({
       this.si9ma.bio =
         "Contributing to the writing of the Jetbrains IDE extension and server design and data mining.";
     });
+    this.$axios
+      .$get("https://api.github.com/users/data-trekkers")
+      .then((data) => {
+        this.datreks = data;
+        this.datreks.bio =
+          "An organization in the field of data analysis and mining.";
+      });
   },
 });
 </script>
