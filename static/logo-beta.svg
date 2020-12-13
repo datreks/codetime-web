@@ -12,7 +12,7 @@
       }
 
       .cls-3 {
-        fill: #606060;
+        fill: #fff;
         fill-rule: evenodd;
       }
     </style>
