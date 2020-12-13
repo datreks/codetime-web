@@ -26,7 +26,14 @@ export function getStackOptions(data: any, category: string): EChartsOption {
         color: "#777",
       },
     },
-    tooltip: {},
+    tooltip: {
+      formatter: (param: any) => {
+        return `${param.data.day} </br>
+        ${param.seriesName}: 
+         <span class="font-weight-bold">
+        ${getDuration(param.data[param.seriesName])}</span>`;
+      },
+    },
     dataset: {
       source: data,
     },
@@ -50,6 +57,10 @@ export function getStackOptions(data: any, category: string): EChartsOption {
         name: k,
         stack: "total",
         encode: { x: "day", y: k },
+        itemStyle: {
+          borderRadius: 2,
+          borderWidth: 2,
+        },
       };
     }),
   } as EChartsOption;
