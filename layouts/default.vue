@@ -72,15 +72,23 @@
       </v-btn>
     </v-app-bar>
     <v-main>
-      <v-container>
-        <v-scroll-y-transition>
-          <nuxt />
-        </v-scroll-y-transition>
-      </v-container>
+      <div class="d-flex flex-column" style="min-height: 100%">
+        <div style="flex: 1">
+          <v-container>
+            <v-scroll-y-transition>
+              <nuxt />
+            </v-scroll-y-transition>
+          </v-container>
+        </div>
+        <div>
+          <v-footer>
+            <span>&copy; {{ new Date().getFullYear() }} Data Trekkers </span>
+            <v-divider vertical class="mx-2"></v-divider>
+            <span> codetime@datreks.com </span>
+          </v-footer>
+        </div>
+      </div>
     </v-main>
-    <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }} Data Trekkers</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -164,6 +172,12 @@ export default {
   border-style: solid;
 }
 
+.theme--light .v-bar--topline,
+.theme--dark .v-bar--topline {
+  border-width: 0 thin 0 0;
+  border-style: solid;
+}
+
 .theme--light .v-bar--underline.theme--light,
 .theme--dark .v-bar--underline.theme--light {
   border-bottom-color: #0000001f !important;
@@ -171,6 +185,16 @@ export default {
 
 .theme--light .v-bar--underline.theme--dark,
 .theme--dark .v-bar--underline.theme--dark {
+  border-bottom-color: #ffffff1f !important;
+}
+
+.theme--light .v-bar--topline.theme--light,
+.theme--dark .v-bar--topline.theme--light {
+  border-bottom-color: #0000001f !important;
+}
+
+.theme--light .v-bar--topline.theme--dark,
+.theme--dark .v-bar--topline.theme--dark {
   border-bottom-color: #ffffff1f !important;
 }
 </style>
