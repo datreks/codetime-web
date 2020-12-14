@@ -40,13 +40,11 @@ export default Vue.extend({
       this.si9ma.bio =
         "Contributing to the writing of the Jetbrains IDE extension and server design and data mining.";
     });
-    this.$axios
-      .$get("https://api.github.com/users/data-trekkers")
-      .then((data) => {
-        this.datreks = data;
-        this.datreks.bio =
-          "An organization in the field of data analysis and mining.";
-      });
+    this.$axios.$get("https://api.github.com/users/datreks").then((data) => {
+      this.datreks = data;
+      this.datreks.bio =
+        "An organization in the field of data analysis and mining.";
+    });
   },
 });
 </script>

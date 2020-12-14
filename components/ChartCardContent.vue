@@ -1,7 +1,7 @@
 <template>
   <v-card-text ref="wapper">
     <v-fade-transition group>
-      <div key="chart" ref="chart" style="height: 300px"></div>
+      <div key="chart" ref="chart" :style="`height: ${height}px`"></div>
       <v-overlay
         v-if="!loaded && user.logined"
         key="overlay"
@@ -22,6 +22,14 @@ export default Vue.extend({
     options: {
       type: Object,
       default: {} as echarts.EChartsOption,
+    },
+    height: {
+      type: Number,
+      default: 250,
+    },
+    name: {
+      type: String,
+      default: "",
     },
   },
   data() {
