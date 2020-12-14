@@ -55,6 +55,16 @@
         <chart-card-content :options="editorOptions"> </chart-card-content>
       </v-card>
     </v-col>
+    <v-col cols="12" md="12">
+      <v-card outlined>
+        <v-card-title>编程日历</v-card-title>
+        <chart-card-content
+          id="calendar"
+          :height="calendarHeight"
+          :options="codeTimeDayCalendarOption"
+        ></chart-card-content>
+      </v-card>
+    </v-col>
   </v-row>
 </template>
 
@@ -64,6 +74,7 @@ import { EChartsOption } from "echarts";
 import ChartCardContent from "../components/ChartCardContent.vue";
 import { getLangRadioOptions } from "../middleware/charts/getLangRadioOptions";
 import { getCodeTimeOptions } from "../middleware/charts/getCodeTimeOptions";
+import { getCalendarOptions } from "../middleware/charts/getCalendarOptions";
 import { getGMTTimeZone } from "../middleware/utils/getGMTTimeZone";
 import { getStackOptions } from "../middleware/charts/getStackOptions";
 export default Vue.extend({
@@ -73,8 +84,10 @@ export default Vue.extend({
       langRadioOptions: {} as EChartsOption,
       codeTimeDayOption: {} as EChartsOption,
       codeTimeHourOption: {} as EChartsOption,
+      codeTimeDayCalendarOption: {} as EChartsOption,
       editorOptions: {} as EChartsOption,
       languageOptions: {} as EChartsOption,
+      calendarHeight: 250,
       empty: false,
     };
   },
@@ -105,6 +118,11 @@ export default Vue.extend({
       })
       .then((d) => {
         this.codeTimeDayOption = getCodeTimeOptions(d.data, "line");
+        const doc = document.querySelector("#calendar") as HTMLDivElement;
+        const width = doc.offsetWidth - 32;
+        this.calendarHeight = (width / 53) * 7 + 20;
+        console.log(this.calendarHeight);
+        this.codeTimeDayCalendarOption = getCalendarOptions(d.data, width);
       });
     this.$axios.$get(`/stats/editor?byDay=1`).then((d) => {
       this.editorOptions = getStackOptions(d, "editor");
