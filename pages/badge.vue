@@ -19,10 +19,13 @@
             </v-col>
           </v-row>
         </v-card-text>
+        <v-divider></v-divider>
         <v-card-text>
           <v-select
             v-model="style"
             dense
+            hide-details
+            outlined
             :items="[
               'flat',
               'social',
