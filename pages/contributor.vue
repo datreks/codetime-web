@@ -1,7 +1,7 @@
 <template>
   <v-row>
     <v-col cols="12">
-      <v-card>
+      <v-card outlined>
         <v-card-title> 贡献者 </v-card-title>
       </v-card>
     </v-col>

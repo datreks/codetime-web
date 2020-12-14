@@ -87,6 +87,12 @@ export default {
           success: colors.green.accent3,
         },
       },
+      default: {
+        props: {
+          dense: true,
+          outlined: true,
+        },
+      },
     },
   },
 

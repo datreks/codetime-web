@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-overlay
-      color="#111"
+      :color="$vuetify.theme.dark ? `#111` : `#fff`"
       :z-index="100"
       :opacity="1"
       :value="user.logined === undefined"
@@ -16,6 +16,16 @@
       ></v-img>
       <div class="text--secondary caption">正在载入资源和数据</div>
     </v-overlay>
+    <v-navigation-drawer
+      v-model="settingsDrawer"
+      clipped
+      app
+      fixed
+      temporary
+      right
+    >
+      <settings-drawer-content></settings-drawer-content>
+    </v-navigation-drawer>
     <v-navigation-drawer
       v-model="drawer"
       clipped
@@ -40,7 +50,7 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar height="48px" clipped-left fixed app>
+    <v-app-bar class="v-bar--underline" flat dense clipped-left fixed app>
       <v-btn icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -51,10 +61,15 @@
         {{ title }}
       </v-toolbar-title>
       <v-spacer />
-      <div v-if="!user.logined"></div>
-      <v-avatar v-else to="/account" size="32px">
-        <v-img :src="user.avatar"></v-img>
-      </v-avatar>
+      <v-btn
+        v-if="user.logined"
+        icon
+        @click.stop="settingsDrawer = !settingsDrawer"
+      >
+        <v-avatar to="/account" size="32px">
+          <v-img :src="user.avatar"></v-img>
+        </v-avatar>
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -70,7 +85,9 @@
 </template>
 
 <script>
+import SettingsDrawerContent from "~/components/SettingsDrawerContent.vue";
 export default {
+  components: { SettingsDrawerContent },
   data() {
     return {
       clipped: false,
@@ -82,11 +99,6 @@ export default {
           to: "/dashboard",
         },
         {
-          icon: "mdi-account-group",
-          title: "贡献者",
-          to: "/contributor",
-        },
-        {
           icon: "mdi-account",
           title: "个人",
           to: "/account",
@@ -96,10 +108,15 @@ export default {
           title: "徽章",
           to: "/badge",
         },
+        {
+          icon: "mdi-github",
+          title: "贡献者",
+          to: "/contributor",
+        },
       ],
       miniVariant: true,
       right: true,
-      rightDrawer: false,
+      settingsDrawer: false,
       title: "Code Time",
     };
   },
@@ -113,7 +130,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 .rotate {
   -webkit-animation: my-rotate 1s linear infinite;
   animation: my-rotate 1s linear infinite;
@@ -140,5 +157,20 @@ export default {
   100% {
     -webkit-transform: rotate(360deg);
   }
+}
+.theme--light .v-bar--underline,
+.theme--dark .v-bar--underline {
+  border-width: 0 0 thin 0;
+  border-style: solid;
+}
+
+.theme--light .v-bar--underline.theme--light,
+.theme--dark .v-bar--underline.theme--light {
+  border-bottom-color: #0000001f !important;
+}
+
+.theme--light .v-bar--underline.theme--dark,
+.theme--dark .v-bar--underline.theme--dark {
+  border-bottom-color: #ffffff1f !important;
 }
 </style>

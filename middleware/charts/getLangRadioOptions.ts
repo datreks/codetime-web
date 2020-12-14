@@ -37,7 +37,7 @@ export function getLangRadioOptions(data: any): EChartsOption {
       radius: ["40%", "70%"],
       itemStyle: {
         borderRadius: 10,
-        borderColor: "#1e1e1e",
+        borderColor: "#0000",
         borderWidth: 10,
       },
       label: {

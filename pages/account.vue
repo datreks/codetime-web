@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" justify="center">
     <v-col cols="12" lg="4" md="6" class="text-center">
-      <v-card>
+      <v-card outlined>
         <v-card-title class="text-center"> Token </v-card-title>
         <v-divider></v-divider>
         <v-card-text>

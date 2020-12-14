@@ -1,7 +1,7 @@
 <template>
   <v-row align="center" justify="center">
     <v-col cols="12" lg="6" md="8">
-      <v-card>
+      <v-card outlined>
         <v-card-title>徽章</v-card-title>
         <v-card-text>
           <img :src="url" />
