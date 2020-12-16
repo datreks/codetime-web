@@ -11,14 +11,14 @@ export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
     xAxis: {
       type: "time",
       axisLabel: {
-        formatter: "{yyyy}-{MM}-{dd} {HH}:00",
+        formatter: "{yyyy}-{MM}-{dd}",
       },
     },
     grid: {
-      left: "10px",
-      right: "10px",
+      left: "0px",
+      right: "30px",
       top: "10px",
-      bottom: "10px",
+      bottom: "0px",
       containLabel: true,
     },
     yAxis: {

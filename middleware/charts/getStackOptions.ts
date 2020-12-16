@@ -26,6 +26,13 @@ export function getStackOptions(data: any, category: string): EChartsOption {
         color: "#777",
       },
     },
+    grid: {
+      left: "0px",
+      right: "30px",
+      top: "50px",
+      bottom: "0px",
+      containLabel: true,
+    },
     tooltip: {
       formatter: (param: any) => {
         return `${param.data.day} </br>
