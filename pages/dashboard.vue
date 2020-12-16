@@ -121,7 +121,6 @@ export default Vue.extend({
         const doc = document.querySelector("#calendar") as HTMLDivElement;
         const width = doc.offsetWidth - 32;
         this.calendarHeight = (width / 53) * 7 + 20;
-        console.log(this.calendarHeight);
         this.codeTimeDayCalendarOption = getCalendarOptions(d.data, width);
       });
     this.$axios.$get(`/stats/editor?byDay=1`).then((d) => {
