@@ -4,16 +4,7 @@
       <v-card outlined>
         <v-card-title>徽章</v-card-title>
         <v-card-text>
-          <v-img :src="url">
-            <template #placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
+          <v-img contain :src="url"> </v-img>
         </v-card-text>
         <v-card-text>
           <v-row dense>
@@ -54,7 +45,9 @@
                 dense
                 outlined
                 placeholder="所有"
+                :append-icon="showProject ? 'mdi-eye' : 'mdi-eye-off'"
                 label="项目"
+                @click:append="showProject = !showProject"
               ></v-text-field>
             </v-col>
             <v-col>
@@ -83,6 +76,7 @@ export default {
       style: "flat",
       project: "",
       recentMS: "",
+      showProject: false,
       loading: true,
     };
   },
@@ -102,7 +96,7 @@ export default {
         this.color
       }%26project=${this.project}%26recentMS=${
         Number(this.recentMS) * 86400000
-      }`;
+      }%26showProject=${this.showProject}`;
     },
     html() {
       return `<img alt="Code Time" src="${this.url}" />`;
