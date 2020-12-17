@@ -135,6 +135,15 @@ export default {
   },
   mounted() {
     this.$store.dispatch("user/login");
+    const lang = !localStorage.getItem("language")
+      ? "en"
+      : localStorage.getItem("language");
+    if (
+      this.$router.currentRoute.fullPath === `/${lang}` ||
+      this.$router.currentRoute.fullPath === `/${lang}/`
+    ) {
+      this.$router.push(`/${lang}/dashboard`);
+    }
   },
   methods: {
     getLangPath(to) {

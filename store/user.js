@@ -23,15 +23,6 @@ export const actions = {
       .$get(`/userInfo`)
       .then((data) => {
         ctx.commit("login", data);
-        const lang = !localStorage.getItem("language")
-          ? "en"
-          : localStorage.getItem("language");
-        if (
-          this.$router.currentRoute.fullPath === `/${lang}` ||
-          this.$router.currentRoute.fullPath === `/${lang}/`
-        ) {
-          this.$router.push(`/${lang}/dashboard`);
-        }
       })
       .catch((e) => {
         // eslint-disable-next-line no-console
