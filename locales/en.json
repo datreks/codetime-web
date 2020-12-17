@@ -28,5 +28,6 @@
   "refresh token": "Refresh Token",
   "refresh token desc 1": "You can update your Token here if you find that it has been leaked or used by others.",
   "refresh token desc 2": "Once refreshed, the Token in the editor plug-in needs to be reset.",
-  "token desc": "You can get token here, and token can be used in the configuration of editor extensions to identify users and record their coding actions."
+  "token desc": "You can get token here, and token can be used in the configuration of editor extensions to identify users and record their coding actions.",
+  "supported editor": "Supported editors"
 }

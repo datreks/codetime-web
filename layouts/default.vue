@@ -107,7 +107,7 @@ export default {
           to: "/dashboard",
         },
         {
-          icon: "mdi-account",
+          icon: "mdi-key",
           title: "account",
           to: "/account",
         },
