@@ -137,17 +137,12 @@ export default {
     language(val) {
       localStorage.setItem("language", val);
       this.$store.commit("lang/SET_LANG", val);
-      this.$router.push({
-        params: { lang: val },
-      });
+      this.$i18n.locale = val;
     },
   },
   mounted() {
     let lang = localStorage.getItem("language");
     if (!lang || lang === "undefined") lang = "en";
-    this.$router.push({
-      params: { lang },
-    });
     this.language = lang;
     this.$store.commit("lang/SET_LANG", lang);
     this.theme = localStorage.getItem("theme");

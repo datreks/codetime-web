@@ -133,21 +133,19 @@ export default {
       return this.$store.state.user;
     },
   },
-  mounted() {
-    this.$store.dispatch("user/login");
+  prerender() {
     const lang = !localStorage.getItem("language")
       ? "en"
       : localStorage.getItem("language");
-    if (
-      this.$router.currentRoute.fullPath === `/${lang}` ||
-      this.$router.currentRoute.fullPath === `/${lang}/`
-    ) {
-      this.$router.push(`/${lang}/dashboard`);
-    }
+    localStorage.setItem("language", lang);
+    this.$i18n.locale = lang;
+  },
+  mounted() {
+    this.$store.dispatch("user/login");
   },
   methods: {
     getLangPath(to) {
-      return `/${this.$store.state.lang.locale}${to}`;
+      return `${to}`;
     },
   },
 };

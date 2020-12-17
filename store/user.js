@@ -23,6 +23,7 @@ export const actions = {
       .$get(`/userInfo`)
       .then((data) => {
         ctx.commit("login", data);
+        this.$router.push("/dashboard");
       })
       .catch((e) => {
         // eslint-disable-next-line no-console
