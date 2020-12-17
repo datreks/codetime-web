@@ -2,7 +2,7 @@
   <v-row>
     <v-col cols="12">
       <v-card outlined>
-        <v-card-title> 贡献者 </v-card-title>
+        <v-card-title> {{ $t("contributor") }} </v-card-title>
       </v-card>
     </v-col>
     <v-col cols="12">
@@ -19,7 +19,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import GithubCard from "../components/GithubCard.vue";
+import GithubCard from "@/components/GithubCard.vue";
 export default Vue.extend({
   components: { GithubCard },
   data() {

@@ -25,7 +25,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ["~/plugins/axios", { src: "~plugins/ga.js", mode: "client" }],
+  plugins: [
+    "~/plugins/axios",
+    { src: "~plugins/ga.js", mode: "client" },
+    "~/plugins/i18n",
+  ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -94,6 +98,9 @@ export default {
         },
       },
     },
+  },
+  router: {
+    middleware: "i18n",
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

@@ -14,7 +14,7 @@
         max-width="64px"
         src="/favicon.ico"
       ></v-img>
-      <div class="text--secondary caption">正在载入资源和数据</div>
+      <div class="text--secondary caption">{{ $t("loading") }}</div>
     </v-overlay>
     <v-navigation-drawer
       v-model="settingsDrawer"
@@ -37,7 +37,7 @@
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
+          :to="getLangPath(item.to)"
           router
           exact
         >
@@ -45,7 +45,7 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title v-text="$t(item.title)" />
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -58,7 +58,7 @@
         <v-icon>mdi-{{ `chevron-${miniVariant ? "right" : "left"}` }}</v-icon>
       </v-btn>
       <v-toolbar-title>
-        {{ title }}
+        {{ $t(title) }}
       </v-toolbar-title>
       <v-spacer />
       <v-btn
@@ -103,22 +103,22 @@ export default {
       items: [
         {
           icon: "mdi-view-dashboard-variant",
-          title: "仪表盘",
+          title: "dashboard",
           to: "/dashboard",
         },
         {
           icon: "mdi-account",
-          title: "个人",
+          title: "account",
           to: "/account",
         },
         {
           icon: "mdi-shield-star",
-          title: "徽章",
+          title: "badge",
           to: "/badge",
         },
         {
           icon: "mdi-github",
-          title: "贡献者",
+          title: "contributor",
           to: "/contributor",
         },
       ],
@@ -135,6 +135,11 @@ export default {
   },
   mounted() {
     this.$store.dispatch("user/login");
+  },
+  methods: {
+    getLangPath(to) {
+      return `/${this.$store.state.lang.locale}${to}`;
+    },
   },
 };
 </script>

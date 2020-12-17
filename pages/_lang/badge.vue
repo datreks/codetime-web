@@ -2,7 +2,7 @@
   <v-row align="center" justify="center">
     <v-col cols="12" lg="6" md="8">
       <v-card outlined>
-        <v-card-title>徽章</v-card-title>
+        <v-card-title>{{ $t("badge") }}</v-card-title>
         <v-card-text>
           <v-img contain :src="url"> </v-img>
         </v-card-text>
@@ -35,7 +35,7 @@
                   'for-the-badge',
                   'plastic',
                 ]"
-                label="样式"
+                :label="$t('style')"
               ></v-select>
             </v-col>
             <v-col>
@@ -44,9 +44,9 @@
                 hide-details
                 dense
                 outlined
-                placeholder="所有"
+                :placeholder="$t('all')"
                 :append-icon="showProject ? 'mdi-eye' : 'mdi-eye-off'"
-                label="项目"
+                :label="$t('project')"
                 @click:append="showProject = !showProject"
               ></v-text-field>
             </v-col>
@@ -54,11 +54,11 @@
               <v-text-field
                 v-model="recentMS"
                 hide-details
-                placeholder="所有"
+                :placeholder="$t('all')"
                 dense
                 outlined
-                suffix="天"
-                label="时间范围"
+                :suffix="$t('day')"
+                :label="$t('time range')"
               ></v-text-field>
             </v-col>
           </v-row>

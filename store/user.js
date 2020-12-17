@@ -23,8 +23,14 @@ export const actions = {
       .$get(`/userInfo`)
       .then((data) => {
         ctx.commit("login", data);
-        if (this.$router.currentRoute.fullPath === "/") {
-          this.$router.push("/dashboard");
+        const lang = !localStorage.getItem("language")
+          ? "en"
+          : localStorage.getItem("language");
+        if (
+          this.$router.currentRoute.fullPath === `/${lang}` ||
+          this.$router.currentRoute.fullPath === `/${lang}/`
+        ) {
+          this.$router.push(`/${lang}/dashboard`);
         }
       })
       .catch((e) => {

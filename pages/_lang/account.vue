@@ -4,9 +4,7 @@
       <v-card outlined>
         <v-card-title class="text-center"> Token </v-card-title>
         <v-divider></v-divider>
-        <v-card-text>
-          你可以在这里获取token，token可以用于编辑器插件的配置，从而识别用户并记录用户的编码操作。
-        </v-card-text>
+        <v-card-text>{{ $t("token desc") }} </v-card-text>
         <v-card-text>
           <v-form>
             <v-row no-gutters>
@@ -22,22 +20,21 @@
           <v-dialog v-model="dialog" width="500">
             <template #activator="{ on, attrs }">
               <v-btn color="error" outlined v-bind="attrs" v-on="on">
-                <v-icon left>mdi-refresh</v-icon> 刷新Token
+                <v-icon left>mdi-refresh</v-icon> {{ $t("refresh token") }}
               </v-btn>
             </template>
             <v-card>
-              <v-card-title> 更新Token </v-card-title>
+              <v-card-title> {{ $t("refresh token") }} </v-card-title>
               <v-card-text>
-                如果你发现Token被泄露，则可以在此更新自己的Token。
-              </v-card-text>
-              <v-card-text>
-                刷新后，编辑器插件中的Token需要重新设置。
+                {{ $t("refresh token desc 1") }}
+                <br />
+                {{ $t("refresh token desc 2") }}
               </v-card-text>
               <v-divider></v-divider>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="error" outlined @click="updateToken">
-                  <v-icon left>mdi-refresh</v-icon> 刷新Token
+                  <v-icon left>mdi-refresh</v-icon> {{ $t("refresh token") }}
                 </v-btn>
               </v-card-actions>
             </v-card>
