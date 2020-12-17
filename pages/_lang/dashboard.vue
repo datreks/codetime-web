@@ -17,47 +17,47 @@
       >
         <v-row align="center">
           <v-col class="grow">
-            未曾找到数据记录，请获取token并应用于插件。
+            {{ $t("not found data") }}
           </v-col>
           <v-col class="shrink">
-            <v-btn to="/account" text> 获取token </v-btn>
+            <v-btn to="/account" text> {{ $t("get token") }} </v-btn>
           </v-col>
         </v-row>
       </v-alert>
     </v-scroll-x-transition>
     <v-col cols="12" md="4">
       <v-card outlined>
-        <v-card-title>语言使用比例</v-card-title>
+        <v-card-title>{{ $t("language rate") }}</v-card-title>
         <chart-card-content :options="langRadioOptions"></chart-card-content>
       </v-card>
     </v-col>
     <v-col cols="12" md="8">
       <v-card outlined>
-        <v-card-title>编程时间统计 - 按日</v-card-title>
+        <v-card-title>{{ $t("code time by day") }}</v-card-title>
         <chart-card-content :options="codeTimeDayOption"> </chart-card-content>
       </v-card>
     </v-col>
     <v-col cols="12">
       <v-card outlined>
-        <v-card-title>编程时间统计 - 按小时</v-card-title>
+        <v-card-title>{{ $t("code time by hour") }}</v-card-title>
         <chart-card-content :options="codeTimeHourOption"> </chart-card-content>
       </v-card>
     </v-col>
     <v-col cols="12" md="6">
       <v-card outlined>
-        <v-card-title>语言用时统计</v-card-title>
+        <v-card-title>{{ $t("lang usage") }}</v-card-title>
         <chart-card-content :options="languageOptions"> </chart-card-content>
       </v-card>
     </v-col>
     <v-col cols="12" md="6">
       <v-card outlined>
-        <v-card-title>编辑器/IDE用时统计</v-card-title>
+        <v-card-title>{{ $t("editor usage") }}</v-card-title>
         <chart-card-content :options="editorOptions"> </chart-card-content>
       </v-card>
     </v-col>
     <v-col cols="12" md="12">
       <v-card outlined>
-        <v-card-title>编程日历</v-card-title>
+        <v-card-title>{{ $t("code calendar") }}</v-card-title>
         <chart-card-content
           id="calendar"
           :height="calendarHeight"
@@ -71,12 +71,12 @@
 <script lang="ts">
 import Vue from "vue";
 import { EChartsOption } from "echarts";
-import ChartCardContent from "../components/ChartCardContent.vue";
-import { getLangRadioOptions } from "../middleware/charts/getLangRadioOptions";
-import { getCodeTimeOptions } from "../middleware/charts/getCodeTimeOptions";
-import { getCalendarOptions } from "../middleware/charts/getCalendarOptions";
-import { getGMTTimeZone } from "../middleware/utils/getGMTTimeZone";
-import { getStackOptions } from "../middleware/charts/getStackOptions";
+import ChartCardContent from "@/components/ChartCardContent.vue";
+import { getLangRadioOptions } from "@/middleware/charts/getLangRadioOptions";
+import { getCodeTimeOptions } from "@/middleware/charts/getCodeTimeOptions";
+import { getCalendarOptions } from "@/middleware/charts/getCalendarOptions";
+import { getGMTTimeZone } from "@/middleware/utils/getGMTTimeZone";
+import { getStackOptions } from "@/middleware/charts/getStackOptions";
 export default Vue.extend({
   components: { ChartCardContent },
   data() {

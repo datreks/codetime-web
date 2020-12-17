@@ -2,12 +2,44 @@
   <v-row no-gutters>
     <v-col cols="12">
       <v-toolbar class="v-bar--underline" height="48px" flat>
-        个人设置
+        {{ $t("settings") }}
       </v-toolbar>
     </v-col>
+    <v-col> </v-col>
     <v-col cols="12">
       <v-container>
-        <div class="text--secondary">主题</div>
+        <div class="text--secondary">{{ $t("language") }}</div>
+        <v-item-group v-model="language">
+          <v-row dense>
+            <v-col cols="6">
+              <v-item v-slot="{ active, toggle }" value="zh">
+                <v-btn
+                  block
+                  large
+                  class="elevation-0"
+                  :color="active ? 'primary' : ''"
+                  @click="toggle"
+                >
+                  Chinese
+                </v-btn>
+              </v-item>
+            </v-col>
+            <v-col cols="6">
+              <v-item v-slot="{ active, toggle }" value="en">
+                <v-btn
+                  block
+                  class="elevation-0"
+                  large
+                  :color="active ? 'primary' : ''"
+                  @click="toggle"
+                >
+                  English
+                </v-btn>
+              </v-item>
+            </v-col>
+          </v-row>
+        </v-item-group>
+        <div class="text--secondary">{{ $t("theme") }}</div>
         <v-item-group v-model="theme">
           <v-row dense>
             <v-col cols="6">
@@ -69,10 +101,10 @@
     <v-divider></v-divider>
     <v-col>
       <v-container>
-        <div class="text--secondary">隐私</div>
+        <div class="text--secondary">{{ $t("privacy") }}</div>
         <v-row dense>
           <v-col cols="12">
-            <v-switch inset label="公开自己的数据"></v-switch>
+            <v-switch inset :label="$t('open data')"></v-switch>
           </v-col>
         </v-row>
       </v-container>
@@ -85,7 +117,7 @@ export default {
     value: { type: Boolean, default: false },
   },
   data() {
-    return { theme: "auto" };
+    return { theme: "auto", language: "en" };
   },
   watch: {
     theme(val) {
@@ -102,9 +134,26 @@ export default {
       this.$vuetify.theme.dark = isDark;
       localStorage.setItem("theme", val);
     },
+    language(val) {
+      localStorage.setItem("language", val);
+      this.$store.commit("lang/SET_LANG", val);
+      this.$router.push({
+        params: { lang: val },
+      });
+    },
   },
   mounted() {
+    let lang = localStorage.getItem("language");
+    if (!lang || lang === "undefined") lang = "en";
+    this.$router.push({
+      params: { lang },
+    });
+    this.language = lang;
+    this.$store.commit("lang/SET_LANG", lang);
     this.theme = localStorage.getItem("theme");
+    if (this.theme === "undefined") {
+      this.theme = "auto";
+    }
   },
 };
 </script>

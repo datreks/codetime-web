@@ -14,11 +14,7 @@
       <div class="headline">Code Time</div>
       <div class="caption text--secondary">Made By si9ma & Jannchie</div>
       <div class="text--secondary font-italic mt-2">
-        "Code Time" is an application for programmers. We conduct log collection
-        and real-time analysis of user data and provide the most detailed report
-        and the most beautiful interface to help programmers understand their
-        programming history. We hope that users will be more passionate about
-        programming with this application and contribute to the community.
+        {{ $t("introduce") }}
       </div>
       <v-row align="center" justify="center">
         <v-col lg="auto" cols="12">
@@ -28,7 +24,7 @@
             :href="`${$axios.defaults.baseURL}login/github`"
           >
             <v-icon left>mdi-github</v-icon>
-            Login with Github
+            {{ $t("login with github") }}
           </v-btn>
         </v-col>
       </v-row>
