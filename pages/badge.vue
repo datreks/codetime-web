@@ -3,6 +3,7 @@
     <v-col cols="12" lg="6" md="8">
       <v-card outlined>
         <v-card-title>{{ $t("badge") }}</v-card-title>
+        <v-card-text> {{ $t("badge desc") }}</v-card-text>
         <v-card-text>
           <v-img contain :src="url"> </v-img>
         </v-card-text>

@@ -1,4 +1,4 @@
-export function getGMTTimeZone() {
+export function getGMTTimeZone(): string {
   const timezoneOffsetMin = new Date().getTimezoneOffset();
   const offsetHrs = Math.abs(Math.floor(timezoneOffsetMin / 60));
   const offsetMin = Math.abs(timezoneOffsetMin % 60);
@@ -15,7 +15,9 @@ export function getGMTTimeZone() {
   else if (timezoneOffsetMin > 0)
     timezoneStandard = "-" + finalOffsetHrs + ":" + finalOffsetMin;
   else if (timezoneOffsetMin === 0) timezoneStandard = "Z";
-
+  if (!timezoneStandard) {
+    return "+00:00";
+  }
   // Timezone difference in hours and minutes
   // String such as +5:30 or -6:00 or Z
   return timezoneStandard;

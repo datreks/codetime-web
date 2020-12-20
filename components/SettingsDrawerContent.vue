@@ -104,7 +104,12 @@
         <div class="text--secondary">{{ $t("privacy") }}</div>
         <v-row dense>
           <v-col cols="12">
-            <v-switch inset :label="$t('open data')"></v-switch>
+            <v-switch
+              v-model="publicData"
+              inset
+              :label="$t('open data')"
+              @click.stop="changePublic"
+            ></v-switch>
           </v-col>
         </v-row>
       </v-container>
@@ -112,14 +117,21 @@
   </v-row>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   props: {
     value: { type: Boolean, default: false },
   },
   data() {
-    return { theme: "auto", language: "en" };
+    return { theme: "auto", language: "en", publicData: false };
+  },
+  computed: {
+    ...mapState(["user"]),
   },
   watch: {
+    "user.publicData"(val) {
+      this.publicData = val;
+    },
     theme(val) {
       let isDark;
       if (
@@ -141,6 +153,7 @@ export default {
     },
   },
   mounted() {
+    this.publicData = this.user.publicData;
     let lang = localStorage.getItem("language");
     if (!lang || lang === "undefined") lang = "en";
     this.language = lang;
@@ -149,6 +162,13 @@ export default {
     if (this.theme === "undefined") {
       this.theme = "auto";
     }
+  },
+  methods: {
+    changePublic() {
+      this.$axios.$post("/updateUser", {
+        publicData: this.publicData ? 1 : -1,
+      });
+    },
   },
 };
 </script>

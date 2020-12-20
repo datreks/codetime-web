@@ -92,12 +92,14 @@ export default Vue.extend({
     };
   },
   mounted() {
-    this.$axios.$get(`/stats/language`).then((d) => {
-      if (d.data.length === 0) {
-        this.empty = true;
-      }
-      this.langRadioOptions = getLangRadioOptions(d.data);
-    });
+    this.$axios
+      .$get(`/stats/language?tz=${encodeURIComponent(getGMTTimeZone())}`)
+      .then((d) => {
+        if (d.data.length === 0) {
+          this.empty = true;
+        }
+        this.langRadioOptions = getLangRadioOptions(d.data);
+      });
     this.$axios
       .$post(`/stats/byTime`, {
         timeFormat: "%Y-%m-%d %H",
@@ -123,12 +125,18 @@ export default Vue.extend({
         this.calendarHeight = (width / 53) * 7 + 20;
         this.codeTimeDayCalendarOption = getCalendarOptions(d.data, width);
       });
-    this.$axios.$get(`/stats/editor?byDay=1`).then((d) => {
-      this.editorOptions = getStackOptions(d, "editor");
-    });
-    this.$axios.$get(`/stats/language?byDay=1`).then((d) => {
-      this.languageOptions = getStackOptions(d, "language");
-    });
+    this.$axios
+      .$get(`/stats/editor?byDay=1&tz=${encodeURIComponent(getGMTTimeZone())}`)
+      .then((d) => {
+        this.editorOptions = getStackOptions(d, "editor");
+      });
+    this.$axios
+      .$get(
+        `/stats/language?byDay=1&tz=${encodeURIComponent(getGMTTimeZone())}`
+      )
+      .then((d) => {
+        this.languageOptions = getStackOptions(d, "language");
+      });
   },
 });
 </script>
