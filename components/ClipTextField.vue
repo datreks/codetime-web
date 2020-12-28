@@ -13,6 +13,7 @@
     <v-scroll-x-transition>
       <v-alert
         v-if="clipped"
+        min-width="300px"
         style="
           position: fixed;
           z-index: 2;
@@ -26,7 +27,7 @@
         type="success"
       >
         <v-row align="center">
-          <v-col class="grow"> 复制成功 </v-col>
+          <v-col class="grow"> {{ $t("succeeded") }} </v-col>
         </v-row>
       </v-alert>
     </v-scroll-x-transition>
