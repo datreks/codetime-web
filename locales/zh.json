@@ -5,6 +5,7 @@
   "account": "用户",
   "settings": "个人设置",
   "privacy": "隐私",
+  "overview": "概览",
   "language": "语言",
   "theme": "主题",
   "open data": "公开自己的数据",
@@ -30,5 +31,13 @@
   "refresh token desc 2": "刷新后，编辑器插件中的Token需要重新设置。",
   "token desc": "你可以在这里获取token，token可以用于编辑器插件的配置，从而识别用户并记录用户的编码操作。",
   "supported editor": "已支持的编辑器",
-  "badge desc": "为了让你的徽章对其他人可见，你需要点击右上角的头像，并在设置中将你的私人数据公开。"
+  "badge desc": "为了让你的徽章对其他人可见，你需要点击右上角的头像，并在设置中将你的私人数据公开。",
+  "total code time": "累计编程时间",
+  "daily average": "每日平均时间",
+  "most language": "最常用编程语言",
+  "total time": "累计使用时间",
+  "usage rate": "使用率",
+  "most editor": "最常用编辑器",
+  "most os": "最常用操作系统",
+  "succeeded": "成功"
 }

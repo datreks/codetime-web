@@ -5,6 +5,7 @@
   "account": "Account",
   "settings": "Personal Settings",
   "privacy": "Privacy",
+  "overview": "Overview",
   "language": "Language",
   "theme": "Theme",
   "open data": "Make your data public",
@@ -17,7 +18,7 @@
   "contributor": "Contributor",
   "loading": "Loading resources and data...",
   "Code Time": "Code Time",
-  "language rate": "Proportion of language use",
+  "language rate": "Language usage",
   "code time by day": "Daily programming time",
   "code time by hour": "Programming time per hour",
   "lang usage": "Language usage statistics",
@@ -30,5 +31,13 @@
   "refresh token desc 2": "Once refreshed, the Token in the editor plug-in needs to be reset.",
   "token desc": "You can get token here, and token can be used in the configuration of editor extensions to identify users and record their coding actions.",
   "supported editor": "Supported editors",
-  "badge desc": "To make your badge visible to others, you need to click on the avatar in the top right corner and then make your private data public in Settings. This setting may not take effect immediately due to caching."
+  "badge desc": "To make your badge visible to others, you need to click on the avatar in the top right corner and then make your private data public in Settings. This setting may not take effect immediately due to caching.",
+  "total code time": "Total Code Time",
+  "daily average": "Daily Average",
+  "most language": "Top Language",
+  "total time": "Total Time",
+  "usage rate": "Usage Rate",
+  "most editor": "Top Editor",
+  "most os": "Top Platform",
+  "succeeded": "Succeeded"
 }

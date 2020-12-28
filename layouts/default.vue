@@ -102,6 +102,11 @@ export default {
       drawer: false,
       items: [
         {
+          icon: "mdi-card-account-details-outline",
+          title: "overview",
+          to: "/overview",
+        },
+        {
           icon: "mdi-view-dashboard-variant",
           title: "dashboard",
           to: "/dashboard",
