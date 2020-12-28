@@ -159,7 +159,7 @@ export default {
     this.language = lang;
     this.$store.commit("lang/SET_LANG", lang);
     this.theme = localStorage.getItem("theme");
-    if (this.theme === "undefined") {
+    if (!["auto", "dark", "light", "mix"].includes(this.theme)) {
       this.theme = "auto";
     }
   },
