@@ -39,5 +39,7 @@
   "usage rate": "Usage Rate",
   "most editor": "Top Editor",
   "most os": "Top Platform",
-  "succeeded": "Succeeded"
+  "succeeded": "Succeeded",
+  "file": "File",
+  "duration": "Duration"
 }

@@ -1,6 +1,6 @@
 <template>
-  <v-card-text ref="wapper">
-    <v-fade-transition group>
+  <v-card-text>
+    <v-fade-transition ref="wapper" group>
       <div key="chart" ref="chart" :style="`height: ${height}px`"></div>
       <v-overlay
         v-if="!loaded && user.logined"

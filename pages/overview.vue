@@ -8,7 +8,7 @@
       </div>
     </v-col>
     <v-col v-if="dates" cols="12" class="title">
-      <v-card>
+      <v-card outlined>
         <v-card-text>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
@@ -26,7 +26,7 @@
       </v-card>
     </v-col>
     <v-col v-if="languageInfo" cols="12" md="4">
-      <v-card>
+      <v-card outlined>
         <v-card-text>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
@@ -51,7 +51,7 @@
       </v-card>
     </v-col>
     <v-col v-if="editorInfo" cols="12" md="4">
-      <v-card>
+      <v-card outlined>
         <v-card-text>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
@@ -76,7 +76,7 @@
       </v-card>
     </v-col>
     <v-col v-if="platformInfo" cols="12" md="4">
-      <v-card>
+      <v-card outlined>
         <v-card-text>
           <v-row no-gutters class="align-center">
             <v-col cols="auto">
