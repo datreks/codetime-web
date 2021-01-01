@@ -39,5 +39,7 @@
   "usage rate": "使用率",
   "most editor": "最常用编辑器",
   "most os": "最常用操作系统",
-  "succeeded": "成功"
+  "succeeded": "成功",
+  "file": "文件",
+  "duration": "用时"
 }

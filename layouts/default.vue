@@ -112,6 +112,11 @@ export default {
           to: "/dashboard",
         },
         {
+          icon: "mdi-folder",
+          title: "project",
+          to: "/project",
+        },
+        {
           icon: "mdi-key",
           title: "account",
           to: "/account",
