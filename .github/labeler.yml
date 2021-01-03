@@ -1,0 +1,22 @@
+github:
+  - any: [".github/**/*"]
+test:
+  - any: ["test/**/*"]
+pages:
+  - any: ["pages/**/*"]
+layout:
+  - any: ["layouts/**/*"]
+locales:
+  - any: ["locales/**/*"]
+middleware:
+  - any: ["middleware/**/*"]
+static:
+  - any: ["static/**/*"]
+store:
+  - any: ["store/**/*"]
+plugins:
+  - any: ["plugins/**/*"]
+dependencies:
+  - any: ["package.json", "yarn.lock"]
+doc:
+  - any: ["./**/*.md"]
