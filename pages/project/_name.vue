@@ -1,27 +1,23 @@
 <template>
-  <v-row dense>
-    <v-col col="12">
+  <v-row>
+    <v-col cols="12">
       <v-card outlined>
         <v-card-title>
           {{ $route.params.name }}
         </v-card-title>
       </v-card>
     </v-col>
-    <v-col cols="12">
-      <v-row dense>
-        <v-col cols="3">
-          <v-card outlined>
-            <chart-card-content
-              :options="languageRadioOptions"
-            ></chart-card-content>
-          </v-card>
-        </v-col>
-        <v-col cols="9">
-          <v-card outlined>
-            <chart-card-content :options="codeTimeOptions"></chart-card-content>
-          </v-card>
-        </v-col>
-      </v-row>
+    <v-col md="3" cols="12">
+      <v-card outlined>
+        <chart-card-content
+          :options="languageRadioOptions"
+        ></chart-card-content>
+      </v-card>
+    </v-col>
+    <v-col md="9" cols="12">
+      <v-card outlined>
+        <chart-card-content :options="codeTimeOptions"></chart-card-content>
+      </v-card>
     </v-col>
     <v-col cols="12">
       <v-card outlined>

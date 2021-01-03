@@ -11,11 +11,11 @@
     </v-col> -->
     <v-col cols="12">
       <v-row dense>
-        <v-col v-for="p in projects" :key="p.project" cols="4">
+        <v-col v-for="p in projects" :key="p.project" cols="12" md="4">
           <v-card :to="`/project/${p.project}`" outlined>
             <v-card-text>
-              <div>项目名称: {{ p.project }}</div>
-              <div>累计用时: {{ getDuration(p.duration) }}</div>
+              <div>{{ $t("project name") }}: {{ p.project }}</div>
+              <div>{{ $t("total time") }}: {{ getDuration(p.duration) }}</div>
             </v-card-text>
           </v-card>
         </v-col>
