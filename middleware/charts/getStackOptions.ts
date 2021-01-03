@@ -57,6 +57,7 @@ export function getStackOptions(data: any, category: string): EChartsOption {
       axisLabel: {
         formatter: "{yyyy}-{MM}-{dd}",
       },
+      minInterval: 86400000,
     },
     series: Array.from(keys).map((k) => {
       return {

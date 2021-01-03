@@ -13,6 +13,7 @@ export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
       axisLabel: {
         formatter: "{yyyy}-{MM}-{dd}",
       },
+      minInterval: 86400000,
     },
     grid: {
       left: "0px",
