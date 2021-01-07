@@ -79,7 +79,7 @@
 import Vue from "vue";
 import { EChartsOption } from "echarts";
 import ChartCardContent from "@/components/ChartCardContent.vue";
-import { getLangRadioOptions } from "@/middleware/charts/getLangRadioOptions";
+import { getPieOptionsFromData } from "@/middleware/charts/getPieOptionsFromData";
 import { getCodeTimeOptions } from "@/middleware/charts/getCodeTimeOptions";
 import { getCalendarOptions } from "@/middleware/charts/getCalendarOptions";
 import { getGMTTimeZone } from "@/middleware/utils/getGMTTimeZone";
@@ -106,7 +106,11 @@ export default Vue.extend({
         if (d.data.length === 0) {
           this.empty = true;
         }
-        this.langRadioOptions = getLangRadioOptions(d.data);
+        this.langRadioOptions = getPieOptionsFromData(
+          d.data,
+          "language",
+          "duration"
+        );
       });
     this.$axios
       .$post(`/stats/byTime`, {
