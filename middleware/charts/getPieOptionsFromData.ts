@@ -52,7 +52,6 @@ function getOptions(data: any) {
     series: {
       type: "pie",
       radius: ["40%", "70%"],
-      roseType: "radius",
       minAngle: 20,
       itemStyle: {
         borderRadius: 10,
