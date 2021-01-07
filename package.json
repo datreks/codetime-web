@@ -26,7 +26,7 @@
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.4",
     "@nuxtjs/pwa": "^3.0.2",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.2",
     "echarts": "^5.0.0",
     "nuxt": "^2.14.12",
     "vue-i18n": "^8.22.2"
@@ -47,7 +47,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.5.0",
-    "eslint": "^7.10.0",
+    "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.0",
