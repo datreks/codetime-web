@@ -33,6 +33,12 @@
     </v-col>
     <v-col cols="12" md="8">
       <v-card outlined>
+        <v-card-title>{{ $t("lang usage") }}</v-card-title>
+        <chart-card-content :options="languageOptions"> </chart-card-content>
+      </v-card>
+    </v-col>
+    <v-col cols="12" md="12">
+      <v-card outlined>
         <v-card-title>{{ $t("code time by day") }}</v-card-title>
         <chart-card-content :options="codeTimeDayOption"> </chart-card-content>
       </v-card>
@@ -43,16 +49,17 @@
         <chart-card-content :options="codeTimeHourOption"> </chart-card-content>
       </v-card>
     </v-col>
-    <v-col cols="12" md="6">
-      <v-card outlined>
-        <v-card-title>{{ $t("lang usage") }}</v-card-title>
-        <chart-card-content :options="languageOptions"> </chart-card-content>
-      </v-card>
-    </v-col>
+
     <v-col cols="12" md="6">
       <v-card outlined>
         <v-card-title>{{ $t("editor usage") }}</v-card-title>
         <chart-card-content :options="editorOptions"> </chart-card-content>
+      </v-card>
+    </v-col>
+    <v-col cols="12" md="6">
+      <v-card outlined>
+        <v-card-title>{{ $t("platform usage") }}</v-card-title>
+        <chart-card-content :options="platformOptions"> </chart-card-content>
       </v-card>
     </v-col>
     <v-col cols="12" md="12">
@@ -84,6 +91,7 @@ export default Vue.extend({
       langRadioOptions: {} as EChartsOption,
       codeTimeDayOption: {} as EChartsOption,
       codeTimeHourOption: {} as EChartsOption,
+      platformOptions: {} as EChartsOption,
       codeTimeDayCalendarOption: {} as EChartsOption,
       editorOptions: {} as EChartsOption,
       languageOptions: {} as EChartsOption,
@@ -129,6 +137,13 @@ export default Vue.extend({
       .$get(`/stats/editor?byDay=1&tz=${encodeURIComponent(getGMTTimeZone())}`)
       .then((d) => {
         this.editorOptions = getStackOptions(d, "editor");
+      });
+    this.$axios
+      .$get(
+        `/stats/platform?byDay=1&tz=${encodeURIComponent(getGMTTimeZone())}`
+      )
+      .then((d) => {
+        this.platformOptions = getStackOptions(d, "platform");
       });
     this.$axios
       .$get(

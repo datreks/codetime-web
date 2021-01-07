@@ -22,7 +22,7 @@
   "language rate": "Language usage",
   "code time by day": "Daily programming time",
   "code time by hour": "Programming time per hour",
-  "lang usage": "Language usage statistics",
+  "lang usage": "Language usage by day",
   "editor usage": "Editor/IDE usage statistics",
   "code calendar": "Programming calendar",
   "get token": "Get Token",
@@ -42,5 +42,6 @@
   "most os": "Top Platform",
   "succeeded": "Succeeded",
   "file": "File",
-  "duration": "Duration"
+  "duration": "Duration",
+  "platform usage": "Platform usage"
 }

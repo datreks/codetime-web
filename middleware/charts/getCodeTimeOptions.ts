@@ -37,7 +37,7 @@ export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
     },
     series: {
       type,
-      smooth: true,
+      // smooth: true,
       itemStyle: {
         borderRadius: [5, 5, 0, 0],
       },

@@ -57,7 +57,7 @@ export function getStackOptions(data: any, category: string): EChartsOption {
       axisLabel: {
         formatter: "{yyyy}-{MM}-{dd}",
       },
-      minInterval: 86400000,
+      splitNumber: 3,
     },
     series: Array.from(keys).map((k) => {
       return {
@@ -66,7 +66,7 @@ export function getStackOptions(data: any, category: string): EChartsOption {
         stack: "total",
         encode: { x: "day", y: k },
         itemStyle: {
-          borderRadius: 2,
+          borderRadius: 4,
           borderWidth: 2,
         },
       };

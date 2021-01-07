@@ -42,5 +42,6 @@
   "most os": "最常用操作系统",
   "succeeded": "成功",
   "file": "文件",
-  "duration": "用时"
+  "duration": "用时",
+  "platform usage": "平台用时统计"
 }
