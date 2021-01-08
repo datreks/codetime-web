@@ -48,6 +48,10 @@
             </v-col>
           </v-row>
         </v-card-text>
+        <v-card-text>
+          <chart-card-content :options="languagePieOptions">
+          </chart-card-content>
+        </v-card-text>
       </v-card>
     </v-col>
     <v-col v-if="editorInfo" cols="12" md="4">
@@ -72,6 +76,9 @@
               }}%
             </v-col>
           </v-row>
+        </v-card-text>
+        <v-card-text>
+          <chart-card-content :options="editorPieOptions"> </chart-card-content>
         </v-card-text>
       </v-card>
     </v-col>
@@ -98,6 +105,10 @@
             </v-col>
           </v-row>
         </v-card-text>
+        <v-card-text>
+          <chart-card-content :options="platformPieOptions">
+          </chart-card-content>
+        </v-card-text>
       </v-card>
     </v-col>
   </v-row>
@@ -105,6 +116,7 @@
 <script>
 import { getGMTTimeZone } from "@/middleware/utils/getGMTTimeZone";
 import { getDuration } from "@/middleware/utils/getDuration";
+import { getPieOptionsFromMap } from "~/middleware/charts/getPieOptionsFromData";
 export default {
   data() {
     return {
@@ -113,6 +125,9 @@ export default {
       languageInfo: undefined,
       totalCodeTime: undefined,
       dates: undefined,
+      editorPieOptions: undefined,
+      languagePieOptions: undefined,
+      platformPieOptions: undefined,
     };
   },
   mounted() {
@@ -138,6 +153,7 @@ export default {
             sum.set(item.editor, base + item.duration);
           }
         }
+        this.editorPieOptions = getPieOptionsFromMap(sum);
         this.editorInfo = [...sum.entries()].sort((a, b) => b[1] - a[1]);
       });
     this.$axios
@@ -155,6 +171,7 @@ export default {
             sum.set(item.platform, base + item.duration);
           }
         }
+        this.platformPieOptions = getPieOptionsFromMap(sum);
         this.platformInfo = [...sum.entries()].sort((a, b) => b[1] - a[1]);
       });
     this.$axios
@@ -173,6 +190,7 @@ export default {
           }
         }
         this.languageInfo = [...sum.entries()].sort((a, b) => b[1] - a[1]);
+        this.languagePieOptions = getPieOptionsFromMap(sum);
       });
   },
   methods: { getDuration },
