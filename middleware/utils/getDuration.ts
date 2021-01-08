@@ -1,19 +1,8 @@
-const MS_OF_DAY = 86400000;
 const MS_OF_HOUR = 3600000;
 const MS_OF_MINUTE = 60000;
 export function getDuration(ms: number): string {
   let result = "";
   let day, hour, minute;
-  if (ms > MS_OF_DAY) {
-    // 超过1天
-    day = Math.floor(ms / MS_OF_DAY);
-    result += day + "d";
-    if (day > 1) {
-      result += "s";
-    }
-    ms %= MS_OF_DAY;
-  }
-
   if (ms > MS_OF_HOUR) {
     // 超过1小时
     if (result !== "") {
