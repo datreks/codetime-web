@@ -43,5 +43,11 @@
   "succeeded": "成功",
   "file": "文件",
   "duration": "用时",
+  "name": "用户名",
+  "rank": "排名",
+  "leaderboard": "排行榜",
+  "code time": "编程时间",
+  "top 10": "前十名开发者排行榜",
+  "only show not privacy": "这里只会显示在设置中公开数据的用户。",
   "platform usage": "平台用时统计"
 }

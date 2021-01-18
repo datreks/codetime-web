@@ -43,5 +43,11 @@
   "succeeded": "Succeeded",
   "file": "File",
   "duration": "Duration",
+  "name": "Name",
+  "rank": "Rank",
+  "leaderboard": "Leaderboard",
+  "code time": "Code Time",
+  "top 10": "Top 10 Programmers Leaderboard",
+  "only show not privacy": "Only users who have public data in the settings will be displayed on the leaderboard.",
   "platform usage": "Platform usage"
 }

@@ -127,6 +127,11 @@ export default {
           to: "/badge",
         },
         {
+          icon: "mdi-view-list",
+          title: "leaderboard",
+          to: "/leaderboard",
+        },
+        {
           icon: "mdi-github",
           title: "contributor",
           to: "/contributor",
