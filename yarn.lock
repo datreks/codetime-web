@@ -4655,13 +4655,13 @@ ecc-jsbn@~0.1.1:
     jsbn "~0.1.0"
     safer-buffer "^2.1.0"
 
-echarts@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/echarts/-/echarts-5.0.1.tgz#b999ff6f515b1aa851ed09576eaf89686b57ce97"
-  integrity sha512-JYn22Dolt2esY2jEzUsw1OxbobuW67oGjIoTjZO3rW89SWkfJ4kbrmC2OW9JjsBrD1rdkmaWBuZZ2HgmThyxJw==
+echarts@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-5.0.2.tgz#1726d17a57cf05d62cd0567b4325e1201a56baf6"
+  integrity sha512-En0VYpc96nw2/2AZoBWPHsGi471zMublttj50kfFpYAeR4geup0Tj9iVgEXh7QYZFPnRiruDJEjcB5PXZ+BYzQ==
   dependencies:
     tslib "2.0.3"
-    zrender "5.0.3"
+    zrender "5.0.4"
 
 editorconfig@^0.15.3:
   version "0.15.3"
@@ -12437,10 +12437,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zrender@5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/zrender/-/zrender-5.0.3.tgz#5e04a55d36455067e4536c8ce9c25093f50f6b68"
-  integrity sha512-TVcN2IMdo7je3GEq/E4CER4AGBe/n50/izILdupppyHf/hVHuiXCRliqdu8+32Z1OmGg6RfKt5qQlkX+bOtU0g==
+zrender@5.0.4:
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-5.0.4.tgz#89c355af908b9f64a301b38f751b7951f2c8a95a"
+  integrity sha512-DJpy0yrHYY5CuH6vhb9IINWbjvBUe/56J8aH86Jb7O8rRPAYZ3M2E469Qf5B3EOIfM3o3aUrO5edRQfLJ+l1Qw==
   dependencies:
     tslib "2.0.3"
 
