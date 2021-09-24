@@ -1,9 +1,13 @@
 import { EChartsOption } from "echarts";
 import { getDuration } from "../utils/getDuration";
 
-export function getStackOptions(data: any, category: string): EChartsOption {
+export function getStackOptions(
+  data: any,
+  category: string,
+  count: number = 30
+): EChartsOption {
   const keys = new Set();
-  data = Object.keys(data.data).map((date) => {
+  const dataset = Object.keys(data.data).map((date) => {
     const list = data.data[date];
     const obj = {} as any;
     for (const item of list) {
@@ -13,12 +17,12 @@ export function getStackOptions(data: any, category: string): EChartsOption {
     obj.day = date;
     return obj;
   });
-  data.forEach((d: any) => {
+  dataset.forEach((d: any) => {
     keys.forEach((k: any) => {
       if (d[k] === undefined) d[k] = 0;
     });
   });
-
+  dataset.splice(0, dataset.length - count);
   const option = {
     legend: {
       type: "scroll",
@@ -42,7 +46,7 @@ export function getStackOptions(data: any, category: string): EChartsOption {
       },
     },
     dataset: {
-      source: data,
+      source: dataset,
     },
     yAxis: {
       type: "value",

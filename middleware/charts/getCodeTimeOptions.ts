@@ -1,6 +1,11 @@
 import { EChartsOption } from "echarts";
 import { getDuration } from "../utils/getDuration";
-export function getCodeTimeOptions(data: any, type = "bar"): EChartsOption {
+export function getCodeTimeOptions(
+  data: any,
+  type = "bar",
+  count: number = 30
+): EChartsOption {
+  data = data.splice(data.length - count);
   const options = {
     tooltip: {
       formatter: (param: any) => {
